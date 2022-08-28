@@ -7,16 +7,27 @@ public class MovimientoDinero {
     private String concepto;
     private float monto;
     private Empresa empresa;
+    private Empleado empleado;
     private Date createdAt;
     private Date updatedAt;
 
-    public MovimientoDinero(long id, String concepto, float monto, Empresa empresa, Date createdAt, Date updatedAt) {
+
+    public MovimientoDinero(long id, String concepto, float monto, Empresa empresa,Empleado empleado, Date createdAt, Date updatedAt) {
         this.id = id;
         this.concepto = concepto;
         this.monto = monto;
         this.empresa = empresa;
+        this.empleado = empleado;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public long getId() {
