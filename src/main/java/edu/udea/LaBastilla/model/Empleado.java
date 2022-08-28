@@ -1,4 +1,4 @@
-package edu.udea.sistema_gestion_proyectos.model;
+package edu.udea.LaBastilla.model;
 
 import java.util.*;
 
