@@ -3,77 +3,67 @@ package edu.udea.LaBastilla.model;
 import java.util.Date;
 
 public class MovimientoDinero {
-    private long Id;
-    private String Concepto;
-    private float Monto;
-    private Empleado Empleado;
-    private Empresa Empresa;
-    private Date CreatedAt;
-    private Date UpdatedAt;
+    private long id;
+    private String concepto;
+    private float monto;
+    private Empresa empresa;
+    private Date createdAt;
+    private Date updatedAt;
 
-    public MovimientoDinero(long id, String concepto, float monto, edu.udea.LaBastilla.model.Empleado empleado, edu.udea.LaBastilla.model.Empresa empresa, Date createdAt, Date updatedAt) {
-        Id = id;
-        Concepto = concepto;
-        Monto = monto;
-        Empleado = empleado;
-        Empresa = empresa;
-        CreatedAt = createdAt;
-        UpdatedAt = updatedAt;
+    public MovimientoDinero(long id, String concepto, float monto, Empresa empresa, Date createdAt, Date updatedAt) {
+        this.id = id;
+        this.concepto = concepto;
+        this.monto = monto;
+        this.empresa = empresa;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getConcepto() {
-        return Concepto;
+        return concepto;
     }
 
     public void setConcepto(String concepto) {
-        Concepto = concepto;
+        this.concepto = concepto;
     }
 
     public float getMonto() {
-        return Monto;
+        return monto;
     }
 
     public void setMonto(float monto) {
-        Monto = monto;
+        this.monto = monto;
     }
 
-    public edu.udea.LaBastilla.model.Empleado getEmpleado() {
-        return Empleado;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setEmpleado(edu.udea.LaBastilla.model.Empleado empleado) {
-        Empleado = empleado;
-    }
-
-    public edu.udea.LaBastilla.model.Empresa getEmpresa() {
-        return Empresa;
-    }
-
-    public void setEmpresa(edu.udea.LaBastilla.model.Empresa empresa) {
-        Empresa = empresa;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     public Date getCreatedAt() {
-        return CreatedAt;
+        return createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
-        CreatedAt = createdAt;
+        this.createdAt = createdAt;
     }
 
     public Date getUpdatedAt() {
-        return UpdatedAt;
+        return updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
-        UpdatedAt = updatedAt;
+        this.updatedAt = updatedAt;
     }
 }
