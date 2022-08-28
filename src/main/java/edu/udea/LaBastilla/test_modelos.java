@@ -1,6 +1,10 @@
 package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Empresa;
+
+import java.util.Date;
+
 import edu.udea.LaBastilla.model.Empleado;
+import edu.udea.LaBastilla.model.MovimientoDinero;
 
 public class test_modelos{
     public static void main(String[] Args){
@@ -12,6 +16,10 @@ public class test_modelos{
         //Es posible crear una nueva instancia de la clase "Empleado"
         Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, "Operario");
         ManejoEmpleado(PrimerEmpleado);
+
+        //Es posible crear una nueva instancia de la clase "MovimientoDinero"
+        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Compra de un libro", 32500, PrimerEmpleado, Ejemplo, new Date(2022, 8, 11), new Date(2022, 8, 28));
+        ManejoDinero(Movimientos);
         
 
     }
@@ -79,4 +87,7 @@ public class test_modelos{
 
         return Objeto_empleado;
     }   
+    public static MovimientoDinero ManejoDinero(MovimientoDinero Objeto_dinero){
+        return Objeto_dinero;
+    }
 }
