@@ -96,7 +96,7 @@ public class test_modelos{
         System.out.println("El antiguo monto de la transacción es: " + monto_antiguo);    
         float monto_nuevo = 324200;
         Objeto_dinero.setMonto(monto_nuevo);
-        System.out.println("El nuevo nombre de la transacción es: " + Objeto_dinero.getMonto());
+        System.out.println("El nuevo monto de la transacción es: " + Objeto_dinero.getMonto());
 
         //Es posible leer y modificar el concepto del movimiento
         String concepto_antiguo = Objeto_dinero.getConcepto();
@@ -108,7 +108,7 @@ public class test_modelos{
         //Es posible crear montos positivos y negativos
         float monto_negativo = -56200;
         Objeto_dinero.setMonto(monto_negativo);
-        System.out.println("El nuevo monyo negativo de la transacción es: " + Objeto_dinero.getMonto());
+        System.out.println("El nuevo monto negativo de la transacción es: " + Objeto_dinero.getMonto());
 
         //Es posible definir qué usuario fue encargado de registrar el movimiento
         String empleado_movimiento = Objeto_dinero.getEmpleado().getName();
