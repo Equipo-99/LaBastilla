@@ -18,7 +18,7 @@ public class test_modelos{
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
-        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Compra de un libro", 32500, PrimerEmpleado, Ejemplo, new Date(2022, 8, 11), new Date(2022, 8, 28));
+        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, new Date(2022, 8, 10), new Date(2022, 8, 28));
         ManejoDinero(Movimientos);
         
 
@@ -88,6 +88,28 @@ public class test_modelos{
         return Objeto_empleado;
     }   
     public static MovimientoDinero ManejoDinero(MovimientoDinero Objeto_dinero){
+
+        //Es posible leer y modificar el monto del movimiento
+        float monto_antiguo = Objeto_dinero.getMonto();
+        System.out.println("El antiguo monto de la transacción es: " + monto_antiguo);    
+        float monto_nuevo = 324200;
+        Objeto_dinero.setMonto(monto_nuevo);
+        System.out.println("El nuevo nombre de la transacción es: " + Objeto_dinero.getMonto());
+
+        //Es posible leer y modificar el concepto del movimiento
+        String concepto_antiguo = Objeto_dinero.getConcepto();
+        System.out.println("El antiguo concepto de la transacción es: " + concepto_antiguo);    
+        String concepto_nuevo = "Compra de ejemplares";
+        Objeto_dinero.setConcepto(concepto_nuevo);
+        System.out.println("El nuevo concepto de la transacción es: " + Objeto_dinero.getConcepto());
+
+        //Es posible crear montos positivos y negativos
+        float monto_negativo = -56200;
+        Objeto_dinero.setMonto(monto_negativo);
+        System.out.println("El nuevo monyo negativo de la transacción es: " + Objeto_dinero.getMonto());
+
+        //Es posible definir qué usuario fue encargado de registrar el movimiento
+
         return Objeto_dinero;
     }
 }
