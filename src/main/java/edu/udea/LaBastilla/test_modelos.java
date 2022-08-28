@@ -1,10 +1,8 @@
 package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Empresa;
-
-import java.util.Date;
-
 import edu.udea.LaBastilla.model.Empleado;
 import edu.udea.LaBastilla.model.MovimientoDinero;
+import java.util.Date;
 
 public class test_modelos{
     public static void main(String[] Args){
@@ -18,7 +16,7 @@ public class test_modelos{
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
-        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, new Date(2022, 8, 10), new Date(2022, 8, 28));
+        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, PrimerEmpleado, new Date(2022, 8, 10), new Date(2022, 8, 28));
         ManejoDinero(Movimientos);
         
 
@@ -53,6 +51,8 @@ public class test_modelos{
         Objeto_empresa.setNIT(nit_nuevo);
         System.out.println("El NIT nuevo de la empresa es: " + Objeto_empresa.getNIT());
 
+        System.out.println();
+
         return Objeto_empresa;
     } 
     public static Empleado ManejoEmpleado(Empleado Objeto_empleado){
@@ -85,6 +85,8 @@ public class test_modelos{
         Objeto_empleado.setRole(rol_nuevo);
         System.out.println("El nuevo rol del empleado es: " + Objeto_empleado.getRole());
 
+        System.out.println();
+
         return Objeto_empleado;
     }   
     public static MovimientoDinero ManejoDinero(MovimientoDinero Objeto_dinero){
@@ -109,6 +111,10 @@ public class test_modelos{
         System.out.println("El nuevo monyo negativo de la transacción es: " + Objeto_dinero.getMonto());
 
         //Es posible definir qué usuario fue encargado de registrar el movimiento
+        String empleado_movimiento = Objeto_dinero.getEmpleado().getName();
+        System.out.println("El empleado a cargo de realizar de la transacción fue: " + empleado_movimiento);
+
+        System.out.println();
 
         return Objeto_dinero;
     }
