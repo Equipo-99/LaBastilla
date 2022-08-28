@@ -2,7 +2,7 @@ package edu.udea.LaBastilla;
 
 import edu.udea.LaBastilla.model.Empresa;
 
-public class test {
+public class test_empresa{
     public static void main(String[] Args){
 
         //Es posible crear una instancia de la clase "Empresa"
