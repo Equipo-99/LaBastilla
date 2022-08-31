@@ -7,12 +7,12 @@ public class Empleado {
     private String name;
     private String email;
     private Empresa enterprise;
-    private String role;
+    private Rol role;
     private ArrayList<MovimientoDinero> transactions;
     private Date createdAt;
     private Date updatedAt;
 
-    public Empleado(String name, String email, Empresa enterprise, String role) {
+    public Empleado(String name, String email, Empresa enterprise, Rol role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
@@ -51,11 +51,11 @@ public class Empleado {
         this.enterprise = enterprise;
     }
 
-    public String getRole() {
+    public Rol getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Rol role) {
         this.role = role;
     }
 

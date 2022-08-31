@@ -2,6 +2,8 @@ package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Empresa;
 import edu.udea.LaBastilla.model.Empleado;
 import edu.udea.LaBastilla.model.MovimientoDinero;
+import edu.udea.LaBastilla.model.Rol;
+
 import java.util.Date;
 
 public class test_modelos{
@@ -12,7 +14,7 @@ public class test_modelos{
         ManejoEmpresa(Ejemplo);
 
         //Es posible crear una nueva instancia de la clase "Empleado"
-        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, "Operario");
+        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, Rol.OPERARIO);
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
@@ -79,9 +81,9 @@ public class test_modelos{
         System.out.println("La nueva empresa a la que el empleado pertenece es: " + nueva_empresa.getNombre());
 
         //Es posible leer y modificar el rol del empleado
-        String rol_antiguo = Objeto_empleado.getRole();
+        Rol rol_antiguo = Objeto_empleado.getRole();
         System.out.println("El antiguo rol del empleado es: " + rol_antiguo);    
-        String rol_nuevo = "Adiministrador";
+        Rol rol_nuevo = Rol.ADMINISTRADOR;
         Objeto_empleado.setRole(rol_nuevo);
         System.out.println("El nuevo rol del empleado es: " + Objeto_empleado.getRole());
 
