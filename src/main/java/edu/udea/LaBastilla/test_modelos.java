@@ -18,7 +18,7 @@ public class test_modelos{
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
-        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, PrimerEmpleado, new Date(2022, 8, 10), new Date(2022, 8, 28));
+        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, PrimerEmpleado, new Date(), new Date());
         ManejoDinero(Movimientos);
         
 
