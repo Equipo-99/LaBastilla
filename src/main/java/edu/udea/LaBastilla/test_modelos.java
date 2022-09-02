@@ -23,101 +23,101 @@ public class test_modelos{
         
 
     }
-    public static Empresa ManejoEmpresa(Empresa Objeto_empresa){      
+    public static Empresa ManejoEmpresa(Empresa objetoEmpresa){      
         
         //Es posible leer y modificar el nombre de la empresa
-        String nombre_antiguo = Objeto_empresa.getNombre();
-        System.out.println("El antiguo nombre de la empresa es: " + nombre_antiguo);    
-        String nombre_nuevo = "La Bastilla";
-        Objeto_empresa.setNombre(nombre_nuevo);
-        System.out.println("El nuevo nombre de la empresa es: " + Objeto_empresa.getNombre());
+        String nombreAntiguo = objetoEmpresa.getNombre();
+        System.out.println("El antiguo nombre de la empresa es: " + nombreAntiguo);    
+        String nombreNuevo = "La Bastilla";
+        objetoEmpresa.setNombre(nombreNuevo);
+        System.out.println("El nuevo nombre de la empresa es: " + objetoEmpresa.getNombre());
     
         //Es posible leer y modificar la dirección de la empresa
-        String direccion_antigua = Objeto_empresa.getDireccion();
+        String direccion_antigua = objetoEmpresa.getDireccion();
         System.out.println("La dirección antigua de la empresa es: " + direccion_antigua);    
         String direccion_nueva = "Calle sexta";
-        Objeto_empresa.setDireccion(direccion_nueva);
-        System.out.println("La dirección nueva de la empresa es: " + Objeto_empresa.getDireccion());
+        objetoEmpresa.setDireccion(direccion_nueva);
+        System.out.println("La dirección nueva de la empresa es: " + objetoEmpresa.getDireccion());
     
         //Es posible leer y modificar el teléfono de la empresa
-        String telefono_antiguo = Objeto_empresa.getTelefono();
+        String telefono_antiguo = objetoEmpresa.getTelefono();
         System.out.println("El teléfono antiguo de la empresa es: " + telefono_antiguo);    
         String telefono_nuevo = "6015555555";
-        Objeto_empresa.setTelefono(telefono_nuevo);
-        System.out.println("El teléfono nuevo de la empresa es: " + Objeto_empresa.getTelefono());
+        objetoEmpresa.setTelefono(telefono_nuevo);
+        System.out.println("El teléfono nuevo de la empresa es: " + objetoEmpresa.getTelefono());
     
         //Es posible leer y modificar el NIT de la empresa
-        String nit_antiguo = Objeto_empresa.getNIT();
+        String nit_antiguo = objetoEmpresa.getNIT();
         System.out.println("El NIT antiguo de la empresa es: " + nit_antiguo);    
         String nit_nuevo = "888885203-4";
-        Objeto_empresa.setNIT(nit_nuevo);
-        System.out.println("El NIT nuevo de la empresa es: " + Objeto_empresa.getNIT());
+        objetoEmpresa.setNIT(nit_nuevo);
+        System.out.println("El NIT nuevo de la empresa es: " + objetoEmpresa.getNIT());
 
         System.out.println();
 
-        return Objeto_empresa;
+        return objetoEmpresa;
     } 
-    public static Empleado ManejoEmpleado(Empleado Objeto_empleado){
+    public static Empleado ManejoEmpleado(Empleado objetoEmpleado){
 
         //Es posible leer y modificar el nombre del empleado
-        String nombre_antiguo = Objeto_empleado.getName();
-        System.out.println("El antiguo nombre del empleado es: " + nombre_antiguo);    
-        String nombre_nuevo = "José Alberto";
-        Objeto_empleado.setName(nombre_nuevo);
-        System.out.println("El nuevo nombre del empleado es: " + Objeto_empleado.getName());
+        String nombreAntiguo = objetoEmpleado.getName();
+        System.out.println("El antiguo nombre del empleado es: " + nombreAntiguo);    
+        String nombreNuevo = "José Alberto";
+        objetoEmpleado.setName(nombreNuevo);
+        System.out.println("El nuevo nombre del empleado es: " + objetoEmpleado.getName());
 
         //Es posible leer y modificar el correo del empleado
-        String email_antiguo = Objeto_empleado.getEmail();
-        System.out.println("El antiguo email del empleado es: " + email_antiguo);    
-        String email_nuevo = "alberto@hotmail.com";
-        Objeto_empleado.setEmail(email_nuevo);
-        System.out.println("El nuevo nombre del empleado es: " + Objeto_empleado.getEmail());
+        String emailAntiguo = objetoEmpleado.getEmail();
+        System.out.println("El antiguo email del empleado es: " + emailAntiguo);    
+        String emailNuevo = "alberto@hotmail.com";
+        objetoEmpleado.setEmail(emailNuevo);
+        System.out.println("El nuevo nombre del empleado es: " + objetoEmpleado.getEmail());
 
         //Es posible leer y modificar la empresa a la que el empleado pertenece
-        Empresa empresa_antigua = Objeto_empleado.getEnterprise();
-        System.out.println("La empresa a la que el empleado solía pertenecer es: " + empresa_antigua.getNombre());    
-        Empresa nueva_empresa = new Empresa("Nueva", "-----", "123", "999-0");
-        Objeto_empleado.setEnterprise(nueva_empresa);
-        System.out.println("La nueva empresa a la que el empleado pertenece es: " + nueva_empresa.getNombre());
+        Empresa empresaAntigua = objetoEmpleado.getEnterprise();
+        System.out.println("La empresa a la que el empleado solía pertenecer es: " + empresaAntigua.getNombre());    
+        Empresa empresaNueva = new Empresa("Nueva", "-----", "123", "999-0");
+        objetoEmpleado.setEnterprise(empresaNueva);
+        System.out.println("La nueva empresa a la que el empleado pertenece es: " + empresaNueva.getNombre());
 
         //Es posible leer y modificar el rol del empleado
-        Rol rol_antiguo = Objeto_empleado.getRole();
-        System.out.println("El antiguo rol del empleado es: " + rol_antiguo);    
-        Rol rol_nuevo = Rol.ADMINISTRADOR;
-        Objeto_empleado.setRole(rol_nuevo);
-        System.out.println("El nuevo rol del empleado es: " + Objeto_empleado.getRole());
+        Rol rolAntiguo = objetoEmpleado.getRole();
+        System.out.println("El antiguo rol del empleado es: " + rolAntiguo);    
+        Rol rolNuevo = Rol.ADMINISTRADOR;
+        objetoEmpleado.setRole(rolNuevo);
+        System.out.println("El nuevo rol del empleado es: " + objetoEmpleado.getRole());
 
         System.out.println();
 
-        return Objeto_empleado;
+        return objetoEmpleado;
     }   
-    public static MovimientoDinero ManejoDinero(MovimientoDinero Objeto_dinero){
+    public static MovimientoDinero ManejoDinero(MovimientoDinero objetoMovimiento){
 
         //Es posible leer y modificar el monto del movimiento
-        float monto_antiguo = Objeto_dinero.getMonto();
-        System.out.println("El antiguo monto de la transacción es: " + monto_antiguo);    
-        float monto_nuevo = 324200;
-        Objeto_dinero.setMonto(monto_nuevo);
-        System.out.println("El nuevo monto de la transacción es: " + Objeto_dinero.getMonto());
+        float montoAntiguo = objetoMovimiento.getMonto();
+        System.out.println("El antiguo monto de la transacción es: " + montoAntiguo);    
+        float montoNuevo = 324200;
+        objetoMovimiento.setMonto(montoNuevo);
+        System.out.println("El nuevo monto de la transacción es: " + objetoMovimiento.getMonto());
 
         //Es posible leer y modificar el concepto del movimiento
-        String concepto_antiguo = Objeto_dinero.getConcepto();
-        System.out.println("El antiguo concepto de la transacción es: " + concepto_antiguo);    
-        String concepto_nuevo = "Compra de ejemplares";
-        Objeto_dinero.setConcepto(concepto_nuevo);
-        System.out.println("El nuevo concepto de la transacción es: " + Objeto_dinero.getConcepto());
+        String conceptoAntiguo = objetoMovimiento.getConcepto();
+        System.out.println("El antiguo concepto de la transacción es: " + conceptoAntiguo);    
+        String conceptoNuevo = "Compra de ejemplares";
+        objetoMovimiento.setConcepto(conceptoNuevo);
+        System.out.println("El nuevo concepto de la transacción es: " + objetoMovimiento.getConcepto());
 
         //Es posible crear montos positivos y negativos
-        float monto_negativo = -56200;
-        Objeto_dinero.setMonto(monto_negativo);
-        System.out.println("El nuevo monto negativo de la transacción es: " + Objeto_dinero.getMonto());
+        float montoNegativo = -56200;
+        objetoMovimiento.setMonto(montoNegativo);
+        System.out.println("El nuevo monto negativo de la transacción es: " + objetoMovimiento.getMonto());
 
         //Es posible definir qué usuario fue encargado de registrar el movimiento
-        String empleado_movimiento = Objeto_dinero.getEmpleado().getName();
-        System.out.println("El empleado a cargo de realizar de la transacción fue: " + empleado_movimiento);
+        String empleadoMovimiento = objetoMovimiento.getEmpleado().getName();
+        System.out.println("El empleado a cargo de realizar de la transacción fue: " + empleadoMovimiento);
 
         System.out.println();
 
-        return Objeto_dinero;
+        return objetoMovimiento;
     }
 }
