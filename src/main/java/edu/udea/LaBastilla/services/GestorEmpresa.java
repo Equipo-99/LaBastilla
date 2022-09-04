@@ -1,4 +1,4 @@
-package edu.udea.LaBastilla.servicios;
+package edu.udea.LaBastilla.services;
 
 import edu.udea.LaBastilla.model.Empresa;
 import org.springframework.stereotype.Service;

@@ -2,23 +2,26 @@ package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Empresa;
 import edu.udea.LaBastilla.model.Empleado;
 import edu.udea.LaBastilla.model.MovimientoDinero;
-import edu.udea.LaBastilla.enums.Enum_RoleName;
-
+import edu.udea.LaBastilla.enums.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class test_modelos{
     public static void main(String[] Args){
-        /*
+
+        ArrayList<Empleado> auxEmp = new ArrayList<>();
+        ArrayList<MovimientoDinero> auxMov = new ArrayList<>();
+
         //Es posible crear una instancia de la clase "Empresa"
-        Empresa Ejemplo = new Empresa("Equipo 99","La nube","6013336445","900668597-8");
+        Empresa Ejemplo = new Empresa(123456, "Equipo 99", "4567", "77777777", "Carrera 11", auxEmp, auxMov, new Date(), new Date());
         ManejoEmpresa(Ejemplo);
 
         //Es posible crear una nueva instancia de la clase "Empleado"
-        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, Enum_RoleName.OPERARIO);
+        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, Enum_RoleName.ADMINISTRADOR);
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
-        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, PrimerEmpleado, new Date(2022, 8, 10), new Date(2022, 8, 28));
+        MovimientoDinero Movimientos = new MovimientoDinero(100200, "Venta de libro", 150000, Ejemplo, PrimerEmpleado, new Date(), new Date());
         ManejoDinero(Movimientos);
         
 
@@ -26,32 +29,32 @@ public class test_modelos{
     public static Empresa ManejoEmpresa(Empresa objetoEmpresa){      
         
         //Es posible leer y modificar el nombre de la empresa
-        String nombreAntiguo = objetoEmpresa.getNombre();
+        String nombreAntiguo = objetoEmpresa.getName();
         System.out.println("El antiguo nombre de la empresa es: " + nombreAntiguo);    
         String nombreNuevo = "La Bastilla";
-        objetoEmpresa.setNombre(nombreNuevo);
-        System.out.println("El nuevo nombre de la empresa es: " + objetoEmpresa.getNombre());
+        objetoEmpresa.setName(nombreNuevo);
+        System.out.println("El nuevo nombre de la empresa es: " + objetoEmpresa.getName());
     
         //Es posible leer y modificar la dirección de la empresa
-        String direccion_antigua = objetoEmpresa.getDireccion();
+        String direccion_antigua = objetoEmpresa.getAdress();
         System.out.println("La dirección antigua de la empresa es: " + direccion_antigua);    
         String direccion_nueva = "Calle sexta";
-        objetoEmpresa.setDireccion(direccion_nueva);
-        System.out.println("La dirección nueva de la empresa es: " + objetoEmpresa.getDireccion());
+        objetoEmpresa.setAdress(direccion_nueva);
+        System.out.println("La dirección nueva de la empresa es: " + objetoEmpresa.getAdress());
     
         //Es posible leer y modificar el teléfono de la empresa
-        String telefono_antiguo = objetoEmpresa.getTelefono();
+        String telefono_antiguo = objetoEmpresa.getPhone();
         System.out.println("El teléfono antiguo de la empresa es: " + telefono_antiguo);    
         String telefono_nuevo = "6015555555";
-        objetoEmpresa.setTelefono(telefono_nuevo);
-        System.out.println("El teléfono nuevo de la empresa es: " + objetoEmpresa.getTelefono());
+        objetoEmpresa.setPhone(telefono_nuevo);
+        System.out.println("El teléfono nuevo de la empresa es: " + objetoEmpresa.getPhone());
     
         //Es posible leer y modificar el NIT de la empresa
-        String nit_antiguo = objetoEmpresa.getNIT();
+        String nit_antiguo = objetoEmpresa.getDocument();
         System.out.println("El NIT antiguo de la empresa es: " + nit_antiguo);    
         String nit_nuevo = "888885203-4";
-        objetoEmpresa.setNIT(nit_nuevo);
-        System.out.println("El NIT nuevo de la empresa es: " + objetoEmpresa.getNIT());
+        objetoEmpresa.setDocument(nit_nuevo);
+        System.out.println("El NIT nuevo de la empresa es: " + objetoEmpresa.getDocument());
 
         System.out.println();
 
@@ -75,10 +78,12 @@ public class test_modelos{
 
         //Es posible leer y modificar la empresa a la que el empleado pertenece
         Empresa empresaAntigua = objetoEmpleado.getEnterprise();
-        System.out.println("La empresa a la que el empleado solía pertenecer es: " + empresaAntigua.getNombre());    
-        Empresa empresaNueva = new Empresa("Nueva", "-----", "123", "999-0");
+        ArrayList<Empleado> auxEmp = new ArrayList<>();
+        ArrayList<MovimientoDinero> auxMov = new ArrayList<>();
+        System.out.println("La empresa a la que el empleado solía pertenecer es: " + empresaAntigua.getName());    
+        Empresa empresaNueva = new Empresa(12345666, "La Bastilla", "46666567", "770077", "Calle 101", auxEmp, auxMov, new Date(), new Date());
         objetoEmpleado.setEnterprise(empresaNueva);
-        System.out.println("La nueva empresa a la que el empleado pertenece es: " + empresaNueva.getNombre());
+        System.out.println("La nueva empresa a la que el empleado pertenece es: " + empresaNueva.getName());
 
         //Es posible leer y modificar el rol del empleado
         Enum_RoleName rolAntiguo = objetoEmpleado.getRole();
@@ -119,6 +124,5 @@ public class test_modelos{
         System.out.println();
 
         return objetoMovimiento;
-    */
     }
 }

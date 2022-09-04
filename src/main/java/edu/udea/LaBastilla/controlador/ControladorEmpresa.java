@@ -1,11 +1,10 @@
 package edu.udea.LaBastilla.controlador;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import edu.udea.LaBastilla.model.ObjetoRespuesta;
-import edu.udea.LaBastilla.servicios.GestorEmpresa;
+import edu.udea.LaBastilla.services.GestorEmpresa;
 import edu.udea.LaBastilla.model.Empresa;
 import java.util.ArrayList;
 
