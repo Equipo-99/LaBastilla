@@ -10,7 +10,7 @@ public class Employee {
     private String email;
     private Enterprise enterprise;
     private Enum_RoleName role;
-    private ArrayList<transaction> transactions;
+    private ArrayList<Transaction> Transactions;
     private Date createdAt;
     private Date updatedAt;
 
@@ -61,12 +61,12 @@ public class Employee {
         this.role = role;
     }
 
-    public ArrayList<transaction> getTransactions() {
-        return transactions;
+    public ArrayList<Transaction> getTransactions() {
+        return Transactions;
     }
 
-    public void setTransactions(ArrayList<transaction> transactions) {
-        this.transactions = transactions;
+    public void setTransactions(ArrayList<Transaction> Transactions) {
+        this.Transactions = Transactions;
     }
 
     public Date getCreatedAt() {

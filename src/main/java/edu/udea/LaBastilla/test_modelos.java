@@ -1,7 +1,7 @@
 package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.model.Employee;
-import edu.udea.LaBastilla.model.transaction;
+import edu.udea.LaBastilla.model.Transaction;
 import edu.udea.LaBastilla.enums.*;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class test_modelos{
     public static void main(String[] Args){
 
         ArrayList<Employee> auxEmp = new ArrayList<>();
-        ArrayList<transaction> auxMov = new ArrayList<>();
+        ArrayList<Transaction> auxMov = new ArrayList<>();
 
         //Es posible crear una instancia de la clase "Enterprise"
         Enterprise Ejemplo = new Enterprise(123456, "Equipo 99", "4567", "77777777", "Carrera 11", auxEmp, auxMov, new Date(), new Date());
@@ -21,8 +21,8 @@ public class test_modelos{
         Employee primerEmployee = new Employee("Luis Carlos", "carlos@gmail.com", Ejemplo, Enum_RoleName.ADMINISTRADOR);
         ManejoEmpleado(primerEmployee);
 
-        //Es posible crear una nueva instancia de la clase "transaction"
-        transaction Movimientos = new transaction(100200, "Venta de libro", 150000, Ejemplo, primerEmployee, new Date(), new Date());
+        //Es posible crear una nueva instancia de la clase "Transaction"
+        Transaction Movimientos = new Transaction(100200, "Venta de libro", 150000, Ejemplo, primerEmployee, new Date(), new Date());
         ManejoDinero(Movimientos);
         
 
@@ -80,7 +80,7 @@ public class test_modelos{
         //Es posible leer y modificar la empresa a la que el empleado pertenece
         Enterprise enterpriseAntigua = objetoEmployee.getEnterprise();
         ArrayList<Employee> auxEmp = new ArrayList<>();
-        ArrayList<transaction> auxMov = new ArrayList<>();
+        ArrayList<Transaction> auxMov = new ArrayList<>();
         System.out.println("La empresa a la que el empleado solía pertenecer es: " + enterpriseAntigua.getName());
         Enterprise enterpriseNueva = new Enterprise(12345666, "La Bastilla", "46666567", "770077", "Calle 101", auxEmp, auxMov, new Date(), new Date());
         objetoEmployee.setEnterprise(enterpriseNueva);
@@ -97,7 +97,7 @@ public class test_modelos{
 
         return objetoEmployee;
     }   
-    public static transaction ManejoDinero(transaction objetoMovimiento){
+    public static Transaction ManejoDinero(Transaction objetoMovimiento){
 
         //Es posible leer y modificar el monto del movimiento
         float montoAntiguo = objetoMovimiento.getAmount();

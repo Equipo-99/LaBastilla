@@ -2,7 +2,7 @@ package edu.udea.LaBastilla.model;
 
 import java.util.Date;
 
-public class transaction {
+public class Transaction {
     private long id;
     private String concept;
     private float amount;
@@ -12,7 +12,7 @@ public class transaction {
     private Date updatedAt;
 
 
-    public transaction(long id, String concept, float amount, Enterprise enterprise, Employee employee, Date createdAt, Date updatedAt) {
+    public Transaction(long id, String concept, float amount, Enterprise enterprise, Employee employee, Date createdAt, Date updatedAt) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;

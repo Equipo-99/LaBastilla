@@ -11,7 +11,7 @@ public class Enterprise {
     private String phone;
     private String adress;
     private ArrayList<Employee> users;
-    private ArrayList<transaction> transactions;
+    private ArrayList<Transaction> Transactions;
     private Date createdAt;
     private Date updatedAt;
 
@@ -20,7 +20,7 @@ public class Enterprise {
                       String phone,
                       String adress,
                       ArrayList<Employee> users,
-                      ArrayList<transaction> transactions,
+                      ArrayList<Transaction> Transactions,
                       Date createdAt,
                       Date updatedAt) {
         this.id = id;
@@ -29,7 +29,7 @@ public class Enterprise {
         this.phone = phone;
         this.adress = adress;
         this.users = users;
-        this.transactions = transactions;
+        this.Transactions = Transactions;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -78,12 +78,12 @@ public class Enterprise {
         this.users = users;
     }
 
-    public ArrayList<transaction> getTransactions() {
-        return transactions;
+    public ArrayList<Transaction> getTransactions() {
+        return Transactions;
     }
 
-    public void setTransactions(ArrayList<transaction> transactions) {
-        this.transactions = transactions;
+    public void setTransactions(ArrayList<Transaction> Transactions) {
+        this.Transactions = Transactions;
     }
 
     public Date getCreatedAt() {
