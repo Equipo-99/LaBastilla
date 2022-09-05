@@ -1,24 +1,32 @@
 package edu.udea.LaBastilla.model;
 
 import edu.udea.LaBastilla.enums.Enum_RoleName;
+import org.springframework.lang.NonNull;
 
 import java.util.*;
 
-public class Empleado {
+public class Employee {
     private long id;
     private String name;
     private String email;
-    private Empresa enterprise;
+    private Enterprise enterprise;
     private Enum_RoleName role;
-    private ArrayList<MovimientoDinero> transactions;
+    private ArrayList<Transaction> transactions;
     private Date createdAt;
     private Date updatedAt;
 
-    public Empleado(String name, String email, Empresa enterprise, Enum_RoleName role) {
+    public Employee(@NonNull long id, String name, String email,
+                    Enterprise enterprise, Enum_RoleName role,
+                    ArrayList<Transaction> transactions,
+                    Date createdAt, Date updatedAt) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
         this.role = role;
+        this.transactions = transactions;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public long getId() {
@@ -45,11 +53,11 @@ public class Empleado {
         this.email = email;
     }
 
-    public Empresa getEnterprise() {
+    public Enterprise getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(Empresa enterprise) {
+    public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
     }
 
@@ -61,11 +69,11 @@ public class Empleado {
         this.role = role;
     }
 
-    public ArrayList<MovimientoDinero> getTransactions() {
+    public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<MovimientoDinero> transactions) {
+    public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
     }
 

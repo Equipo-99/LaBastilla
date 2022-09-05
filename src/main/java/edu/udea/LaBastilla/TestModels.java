@@ -1,12 +1,6 @@
 package edu.udea.LaBastilla;
-import edu.udea.LaBastilla.model.Empresa;
-import edu.udea.LaBastilla.model.Empleado;
-import edu.udea.LaBastilla.model.MovimientoDinero;
-import edu.udea.LaBastilla.enums.Enum_RoleName;
 
-import java.util.Date;
-
-public class test_modelos{
+public class TestModels {
     public static void main(String[] Args){
         /*
         //Es posible crear una instancia de la clase "Empresa"
@@ -94,26 +88,26 @@ public class test_modelos{
     public static MovimientoDinero ManejoDinero(MovimientoDinero objetoMovimiento){
 
         //Es posible leer y modificar el monto del movimiento
-        float montoAntiguo = objetoMovimiento.getMonto();
+        float montoAntiguo = objetoMovimiento.getAmount();
         System.out.println("El antiguo monto de la transacción es: " + montoAntiguo);    
         float montoNuevo = 324200;
-        objetoMovimiento.setMonto(montoNuevo);
-        System.out.println("El nuevo monto de la transacción es: " + objetoMovimiento.getMonto());
+        objetoMovimiento.setAmount(montoNuevo);
+        System.out.println("El nuevo monto de la transacción es: " + objetoMovimiento.getAmount());
 
         //Es posible leer y modificar el concepto del movimiento
-        String conceptoAntiguo = objetoMovimiento.getConcepto();
+        String conceptoAntiguo = objetoMovimiento.getConcept();
         System.out.println("El antiguo concepto de la transacción es: " + conceptoAntiguo);    
         String conceptoNuevo = "Compra de ejemplares";
-        objetoMovimiento.setConcepto(conceptoNuevo);
-        System.out.println("El nuevo concepto de la transacción es: " + objetoMovimiento.getConcepto());
+        objetoMovimiento.setConcept(conceptoNuevo);
+        System.out.println("El nuevo concepto de la transacción es: " + objetoMovimiento.getConcept());
 
         //Es posible crear montos positivos y negativos
         float montoNegativo = -56200;
-        objetoMovimiento.setMonto(montoNegativo);
-        System.out.println("El nuevo monto negativo de la transacción es: " + objetoMovimiento.getMonto());
+        objetoMovimiento.setAmount(montoNegativo);
+        System.out.println("El nuevo monto negativo de la transacción es: " + objetoMovimiento.getAmount());
 
         //Es posible definir qué usuario fue encargado de registrar el movimiento
-        String empleadoMovimiento = objetoMovimiento.getEmpleado().getName();
+        String empleadoMovimiento = objetoMovimiento.getEmployee().getName();
         System.out.println("El empleado a cargo de realizar de la transacción fue: " + empleadoMovimiento);
 
         System.out.println();

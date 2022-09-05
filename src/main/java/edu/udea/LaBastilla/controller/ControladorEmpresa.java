@@ -1,12 +1,13 @@
-package edu.udea.LaBastilla.controlador;
+package edu.udea.LaBastilla.controller;
 
+import edu.udea.LaBastilla.model.Enterprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import edu.udea.LaBastilla.model.ObjetoRespuesta;
-import edu.udea.LaBastilla.servicios.GestorEmpresa;
-import edu.udea.LaBastilla.model.Empresa;
+import edu.udea.LaBastilla.services.GestorEmpresa;
+
 import java.util.ArrayList;
 
 @RestController
@@ -15,54 +16,54 @@ public class ControladorEmpresa {
     private GestorEmpresa gestorEmpresa;
 
     @GetMapping("/enterprises")
-    public ResponseEntity<ArrayList<Empresa>> getEmpresas(){
+    public ResponseEntity<ArrayList<Enterprise>> getEmpresas(){
         return new ResponseEntity<>(gestorEmpresa.getEmpresas(), HttpStatus.OK);
     }
 
-    @GetMapping("/enterprise/{nameEmpresa}")
-    public ResponseEntity<Object> getUsuario(@PathVariable String nameEmpresa){
+    @GetMapping("/enterprises/{id}")
+    public ResponseEntity<Object> getEmpresaPath(@PathVariable String id){
         try {
-            Empresa empresa = gestorEmpresa.getEmpresa(nameEmpresa);
-            return new ResponseEntity<>(empresa,HttpStatus.OK);
+            Enterprise enterprise = gestorEmpresa.getEmpresa(id);
+            return new ResponseEntity<>(enterprise,HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PostMapping("/enterprise")
-    public ResponseEntity<String> postEmpresa(@RequestBody Empresa empresaParametro){
+    @PostMapping("/enterprises")
+    public ResponseEntity<String> postEmpresa(@RequestBody Enterprise enterpriseParametro){
         try {
-            String mensaje = gestorEmpresa.setEmpresa(empresaParametro);
+            String mensaje = gestorEmpresa.setEmpresa(enterpriseParametro);
             return new ResponseEntity<>(mensaje,HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("/enterprise/{nameEmpresa}")
-    public ResponseEntity<ObjetoRespuesta> putEmpresa(@RequestBody Empresa empresaUpdate,@PathVariable String nameEmpresa){
+    @PutMapping("/enterprises/{id}")
+    public ResponseEntity<ObjetoRespuesta> putEmpresa(@RequestBody Enterprise enterpriseUpdate, @PathVariable String id){
         try {
-            Empresa empresaGuardada = gestorEmpresa.updateEmpresaAll(empresaUpdate,nameEmpresa);
-            return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion exitosa",empresaGuardada),HttpStatus.OK);
+            Enterprise enterpriseGuardada = gestorEmpresa.updateEmpresaAll(enterpriseUpdate, id);
+            return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion exitosa", enterpriseGuardada),HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PatchMapping("/enterprise/{nameEmpresa}")
-    public ResponseEntity<ObjetoRespuesta> patchEmpresa(@RequestBody Empresa empresaUpdate,@PathVariable String nameEmpresa){
+    @PatchMapping("/enterprises/{id}")
+    public ResponseEntity<ObjetoRespuesta> patchEmpresa(@RequestBody Enterprise enterpriseUpdate, @PathVariable String id){
         try {
-            Empresa empresaGuardada = gestorEmpresa.updateEmpresa(empresaUpdate,nameEmpresa);
-            return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion exitosa",empresaGuardada),HttpStatus.OK);
+            Enterprise enterpriseGuardada = gestorEmpresa.updateEmpresa(enterpriseUpdate, id);
+            return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion exitosa", enterpriseGuardada),HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @DeleteMapping("/enterprise/{nameEmpresa}")
-    public ResponseEntity<ObjetoRespuesta> deleteEmpresa(@PathVariable String nameEmpresa){
+    @DeleteMapping("/enterprises/{id}")
+    public ResponseEntity<ObjetoRespuesta> deleteEmpresa(@PathVariable String id){
         try {
-            String mensaje = gestorEmpresa.deleteEmpresa(nameEmpresa);
+            String mensaje = gestorEmpresa.deleteEmpresa(id);
             return new ResponseEntity<>(new ObjetoRespuesta(mensaje,null),HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);
