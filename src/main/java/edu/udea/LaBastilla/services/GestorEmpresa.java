@@ -1,84 +1,84 @@
 package edu.udea.LaBastilla.services;
 
-import edu.udea.LaBastilla.model.Empresa;
+import edu.udea.LaBastilla.model.Enterprise;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 
 @Service
 public class GestorEmpresa {
-    private ArrayList<Empresa> empresas;
+    private ArrayList<Enterprise> enterprises;
 
     public GestorEmpresa(){
-        this.empresas = new ArrayList<>();
+        this.enterprises = new ArrayList<>();
 
-        this.empresas.add(new Empresa(1,"Equipo_99","100-1","6027776543","Cali",null,null,new Date(),new Date()));
-        this.empresas.add(new Empresa(2,"La_Bastilla","200-1","6027444543","Medellin",null,null,new Date(),new Date()));
+        this.enterprises.add(new Enterprise(1,"Equipo_99","100-1","6027776543","Cali",null,null,new Date(),new Date()));
+        this.enterprises.add(new Enterprise(2,"La_Bastilla","200-1","6027444543","Medellin",null,null,new Date(),new Date()));
     }
 
-    public Empresa getEmpresa(String nombreEmpresa) throws Exception {
-        for (Empresa empresa:this.empresas){
-            if(empresa.getName().equals(nombreEmpresa)){
-                return empresa;
+    public Enterprise getEmpresa(String nombreEmpresa) throws Exception {
+        for (Enterprise enterprise :this.enterprises){
+            if(enterprise.getName().equals(nombreEmpresa)){
+                return enterprise;
             }
         }
         throw new Exception("La empresa no existe");
     }
-    public String setEmpresa(Empresa empresaParametro) throws Exception {
+    public String setEmpresa(Enterprise enterpriseParametro) throws Exception {
         try {
-            getEmpresa(empresaParametro.getName());
+            getEmpresa(enterpriseParametro.getName());
         } catch (Exception e){
-            this.empresas.add(empresaParametro);
-            return "Empresa creada exitosamente";
+            this.enterprises.add(enterpriseParametro);
+            return "Enterprise creada exitosamente";
         }
         throw new Exception("La empresa ya existe");
     }
 
-    public Empresa updateEmpresa(Empresa empresaUpdate,String nombreEmpresa) throws Exception {
+    public Enterprise updateEmpresa(Enterprise enterpriseUpdate, String nombreEmpresa) throws Exception {
         try {
-            Empresa empresaSaved = getEmpresa(nombreEmpresa);
-            //!Strings.isNullOrEmpty(empresaUpdate.getName();
-            if(empresaUpdate.getName() != null && !empresaUpdate.getName().equals("")){
-                empresaSaved.setName(empresaUpdate.getName());
+            Enterprise enterpriseSaved = getEmpresa(nombreEmpresa);
+            //!Strings.isNullOrEmpty(enterpriseUpdate.getName();
+            if(enterpriseUpdate.getName() != null && !enterpriseUpdate.getName().equals("")){
+                enterpriseSaved.setName(enterpriseUpdate.getName());
             }
-            if(empresaUpdate.getDocument() != null && !empresaUpdate.getDocument().equals("")){
-                empresaSaved.setDocument(empresaUpdate.getDocument());
+            if(enterpriseUpdate.getDocument() != null && !enterpriseUpdate.getDocument().equals("")){
+                enterpriseSaved.setDocument(enterpriseUpdate.getDocument());
             }
-            if(empresaUpdate.getPhone() != null && !empresaUpdate.getPhone().equals("")){
-                empresaSaved.setPhone(empresaUpdate.getPhone());
+            if(enterpriseUpdate.getPhone() != null && !enterpriseUpdate.getPhone().equals("")){
+                enterpriseSaved.setPhone(enterpriseUpdate.getPhone());
             }
-            if(empresaUpdate.getAdress() != null && !empresaUpdate.getAdress().equals("")){
-                empresaSaved.setAdress(empresaUpdate.getAdress());
+            if(enterpriseUpdate.getAdress() != null && !enterpriseUpdate.getAdress().equals("")){
+                enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
             }
-            if(empresaUpdate.getUsers() != null){
-                empresaSaved.setUsers(empresaUpdate.getUsers());
+            if(enterpriseUpdate.getUsers() != null){
+                enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
             }
-            if(empresaUpdate.getTransactions() != null){
-                empresaSaved.setTransactions(empresaUpdate.getTransactions());
+            if(enterpriseUpdate.getTransactions() != null){
+                enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
             }
-            if(empresaUpdate.getCreatedAt() != null){
-                empresaSaved.setCreatedAt(empresaUpdate.getCreatedAt());
+            if(enterpriseUpdate.getCreatedAt() != null){
+                enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
             }
-            if(empresaUpdate.getUpdatedAt() != null){
-                empresaSaved.setUpdatedAt(empresaUpdate.getUpdatedAt());
+            if(enterpriseUpdate.getUpdatedAt() != null){
+                enterpriseSaved.setUpdatedAt(enterpriseUpdate.getUpdatedAt());
             }
-            return empresaSaved;
+            return enterpriseSaved;
         }catch (Exception e){
             throw new Exception("La empresa no existe. Falló la actualizacion de datos");
         }
     }
-    public Empresa updateEmpresaAll(Empresa empresaUpdate,String nombreEmpresa) throws Exception {
+    public Enterprise updateEmpresaAll(Enterprise enterpriseUpdate, String nombreEmpresa) throws Exception {
         try {
-            Empresa empresaSaved = getEmpresa(nombreEmpresa);
-            empresaSaved.setName(empresaUpdate.getName());
-            empresaSaved.setDocument(empresaUpdate.getDocument());
-            empresaSaved.setPhone(empresaUpdate.getPhone());
-            empresaSaved.setAdress(empresaUpdate.getAdress());
-            empresaSaved.setUsers(empresaUpdate.getUsers());
-            empresaSaved.setTransactions(empresaUpdate.getTransactions());
-            empresaSaved.setCreatedAt(empresaUpdate.getCreatedAt());
-            empresaSaved.setUpdatedAt(empresaUpdate.getUpdatedAt());
-            return empresaSaved;
+            Enterprise enterpriseSaved = getEmpresa(nombreEmpresa);
+            enterpriseSaved.setName(enterpriseUpdate.getName());
+            enterpriseSaved.setDocument(enterpriseUpdate.getDocument());
+            enterpriseSaved.setPhone(enterpriseUpdate.getPhone());
+            enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
+            enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
+            enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
+            enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
+            enterpriseSaved.setUpdatedAt(enterpriseUpdate.getUpdatedAt());
+            return enterpriseSaved;
         }catch (Exception e){
             throw new Exception("La empresa no existe. Falló la actualizacion de datos");
         }
@@ -86,16 +86,16 @@ public class GestorEmpresa {
 
     public String deleteEmpresa(String nombreEmpresa) throws Exception {
         try {
-            Empresa empresa =getEmpresa(nombreEmpresa);
-            this.empresas.remove(empresa);
-            return "Empresa eliminada Exitosamente";
+            Enterprise enterprise =getEmpresa(nombreEmpresa);
+            this.enterprises.remove(enterprise);
+            return "Enterprise eliminada Exitosamente";
         }catch (Exception e){
             throw new Exception("La empresa no existe. Imposible eliminar");
         }
     }
 
-    public ArrayList<Empresa> getEmpresas(){return empresas;}
-    public void setEmpresas(ArrayList<Empresa> empresas){
-        this.empresas=empresas;
+    public ArrayList<Enterprise> getEmpresas(){return enterprises;}
+    public void setEmpresas(ArrayList<Enterprise> enterprises){
+        this.enterprises = enterprises;
     }
 }
