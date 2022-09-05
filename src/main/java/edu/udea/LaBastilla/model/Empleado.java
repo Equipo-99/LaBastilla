@@ -1,5 +1,7 @@
 package edu.udea.LaBastilla.model;
 
+import edu.udea.LaBastilla.enums.Enum_RoleName;
+
 import java.util.*;
 
 public class Empleado {
@@ -7,12 +9,12 @@ public class Empleado {
     private String name;
     private String email;
     private Empresa enterprise;
-    private Rol role;
+    private Enum_RoleName role;
     private ArrayList<MovimientoDinero> transactions;
     private Date createdAt;
     private Date updatedAt;
 
-    public Empleado(String name, String email, Empresa enterprise, Rol role) {
+    public Empleado(String name, String email, Empresa enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
@@ -51,11 +53,11 @@ public class Empleado {
         this.enterprise = enterprise;
     }
 
-    public Rol getRole() {
+    public Enum_RoleName getRole() {
         return role;
     }
 
-    public void setRole(Rol role) {
+    public void setRole(Enum_RoleName role) {
         this.role = role;
     }
 

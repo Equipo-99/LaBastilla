@@ -2,19 +2,19 @@ package edu.udea.LaBastilla;
 import edu.udea.LaBastilla.model.Empresa;
 import edu.udea.LaBastilla.model.Empleado;
 import edu.udea.LaBastilla.model.MovimientoDinero;
-import edu.udea.LaBastilla.model.Rol;
+import edu.udea.LaBastilla.enums.Enum_RoleName;
 
 import java.util.Date;
 
 public class test_modelos{
     public static void main(String[] Args){
-
+        /*
         //Es posible crear una instancia de la clase "Empresa"
         Empresa Ejemplo = new Empresa("Equipo 99","La nube","6013336445","900668597-8");
         ManejoEmpresa(Ejemplo);
 
         //Es posible crear una nueva instancia de la clase "Empleado"
-        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, Rol.OPERARIO);
+        Empleado PrimerEmpleado = new Empleado("Luis Carlos", "carlos@gmail.com", Ejemplo, Enum_RoleName.OPERARIO);
         ManejoEmpleado(PrimerEmpleado);
 
         //Es posible crear una nueva instancia de la clase "MovimientoDinero"
@@ -81,9 +81,9 @@ public class test_modelos{
         System.out.println("La nueva empresa a la que el empleado pertenece es: " + empresaNueva.getNombre());
 
         //Es posible leer y modificar el rol del empleado
-        Rol rolAntiguo = objetoEmpleado.getRole();
+        Enum_RoleName rolAntiguo = objetoEmpleado.getRole();
         System.out.println("El antiguo rol del empleado es: " + rolAntiguo);    
-        Rol rolNuevo = Rol.ADMINISTRADOR;
+        Enum_RoleName rolNuevo = Enum_RoleName.ADMINISTRADOR;
         objetoEmpleado.setRole(rolNuevo);
         System.out.println("El nuevo rol del empleado es: " + objetoEmpleado.getRole());
 
@@ -119,5 +119,6 @@ public class test_modelos{
         System.out.println();
 
         return objetoMovimiento;
+    */
     }
 }
