@@ -20,10 +20,6 @@ public class test_modelos{
         //Es posible crear una nueva instancia de la clase "Empleado"
         Employee primerEmployee = new Employee("Luis Carlos", "carlos@gmail.com", Ejemplo, Enum_RoleName.ADMINISTRADOR);
         ManejoEmpleado(primerEmployee);
-
-        //Es posible crear una nueva instancia de la clase "Transaction"
-        Transaction Movimientos = new Transaction(100200, "Venta de libro", 150000, Ejemplo, primerEmployee, new Date(), new Date());
-        ManejoDinero(Movimientos);
         
 
     }
