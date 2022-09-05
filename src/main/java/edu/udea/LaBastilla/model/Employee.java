@@ -4,17 +4,17 @@ import edu.udea.LaBastilla.enums.Enum_RoleName;
 
 import java.util.*;
 
-public class Empleado {
+public class Employee {
     private long id;
     private String name;
     private String email;
-    private Empresa enterprise;
+    private Enterprise enterprise;
     private Enum_RoleName role;
-    private ArrayList<MovimientoDinero> transactions;
+    private ArrayList<Transaction> Transactions;
     private Date createdAt;
     private Date updatedAt;
 
-    public Empleado(String name, String email, Empresa enterprise, Enum_RoleName role) {
+    public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
@@ -45,11 +45,11 @@ public class Empleado {
         this.email = email;
     }
 
-    public Empresa getEnterprise() {
+    public Enterprise getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(Empresa enterprise) {
+    public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
     }
 
@@ -61,12 +61,12 @@ public class Empleado {
         this.role = role;
     }
 
-    public ArrayList<MovimientoDinero> getTransactions() {
-        return transactions;
+    public ArrayList<Transaction> getTransactions() {
+        return Transactions;
     }
 
-    public void setTransactions(ArrayList<MovimientoDinero> transactions) {
-        this.transactions = transactions;
+    public void setTransactions(ArrayList<Transaction> Transactions) {
+        this.Transactions = Transactions;
     }
 
     public Date getCreatedAt() {

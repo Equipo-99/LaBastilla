@@ -4,32 +4,32 @@ import org.springframework.lang.NonNull;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Empresa {
+public class Enterprise {
     private long id;
     private String name;
     private String document;
     private String phone;
     private String adress;
-    private ArrayList<Empleado> users;
-    private ArrayList<MovimientoDinero> transactions;
+    private ArrayList<Employee> users;
+    private ArrayList<Transaction> Transactions;
     private Date createdAt;
     private Date updatedAt;
 
-    public Empresa(@NonNull long id, String name,
-                   String document,
-                   String phone,
-                   String adress,
-                   ArrayList<Empleado> users,
-                   ArrayList<MovimientoDinero> transactions,
-                   Date createdAt,
-                   Date updatedAt) {
+    public Enterprise(@NonNull long id, String name,
+                      String document,
+                      String phone,
+                      String adress,
+                      ArrayList<Employee> users,
+                      ArrayList<Transaction> Transactions,
+                      Date createdAt,
+                      Date updatedAt) {
         this.id = id;
         this.name = name;
         this.document = document;
         this.phone = phone;
         this.adress = adress;
         this.users = users;
-        this.transactions = transactions;
+        this.Transactions = Transactions;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -70,20 +70,20 @@ public class Empresa {
         this.adress = adress;
     }
 
-    public ArrayList<Empleado> getUsers() {
+    public ArrayList<Employee> getUsers() {
         return users;
     }
 
-    public void setUsers(ArrayList<Empleado> users) {
+    public void setUsers(ArrayList<Employee> users) {
         this.users = users;
     }
 
-    public ArrayList<MovimientoDinero> getTransactions() {
-        return transactions;
+    public ArrayList<Transaction> getTransactions() {
+        return Transactions;
     }
 
-    public void setTransactions(ArrayList<MovimientoDinero> transactions) {
-        this.transactions = transactions;
+    public void setTransactions(ArrayList<Transaction> Transactions) {
+        this.Transactions = Transactions;
     }
 
     public Date getCreatedAt() {
