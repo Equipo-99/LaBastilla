@@ -37,7 +37,6 @@ public class GestorEmpresa {
     public Enterprise updateEmpresa(Enterprise enterpriseUpdate, String nombreEmpresa) throws Exception {
         try {
             Enterprise enterpriseSaved = getEmpresa(nombreEmpresa);
-            //!Strings.isNullOrEmpty(empresaUpdate.getName();
             if(enterpriseUpdate.getName() != null && !enterpriseUpdate.getName().equals("")){
                 enterpriseSaved.setName(enterpriseUpdate.getName());
             }
