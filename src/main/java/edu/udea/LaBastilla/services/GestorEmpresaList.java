@@ -3,17 +3,16 @@ package edu.udea.LaBastilla.services;
 import edu.udea.LaBastilla.model.Enterprise;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Service
-public class GestorEmpresa {
+public class GestorEmpresaList {
     private ArrayList<Enterprise> enterprises;
 
-    public GestorEmpresa(){
+    public GestorEmpresaList(){
         this.enterprises = new ArrayList<>();
 
-        this.enterprises.add(new Enterprise(1,"Equipo_99","100-1","6027776543","Cali",null,null,new Date(),new Date()));
-        this.enterprises.add(new Enterprise(2,"La_Bastilla","200-1","6027444543","Medellin",null,null,new Date(),new Date()));
+        this.enterprises.add(new Enterprise("Equipo_99","100-1","6027776543","Cali",null));
+        this.enterprises.add(new Enterprise("La_Bastilla","200-1","6027444543","Medellin",null));
     }
 
     public Enterprise getEmpresa(String nombreEmpresa) throws Exception {
@@ -49,12 +48,12 @@ public class GestorEmpresa {
             if(enterpriseUpdate.getAdress() != null && !enterpriseUpdate.getAdress().equals("")){
                 enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
             }
-            if(enterpriseUpdate.getUsers() != null){
-                enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
-            }
-            if(enterpriseUpdate.getTransactions() != null){
-                enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
-            }
+            //if(enterpriseUpdate.getUsers() != null){
+            //    enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
+            //}
+            //if(enterpriseUpdate.getTransactions() != null){
+            //    enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
+            //}
             if(enterpriseUpdate.getCreatedAt() != null){
                 enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
             }
@@ -73,8 +72,8 @@ public class GestorEmpresa {
             enterpriseSaved.setDocument(enterpriseUpdate.getDocument());
             enterpriseSaved.setPhone(enterpriseUpdate.getPhone());
             enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
-            enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
-            enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
+            //enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
+            //enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
             enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
             enterpriseSaved.setUpdatedAt(enterpriseUpdate.getUpdatedAt());
             return enterpriseSaved;

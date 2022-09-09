@@ -1,37 +1,43 @@
 package edu.udea.LaBastilla.model;
 
-import org.springframework.lang.NonNull;
-import java.util.ArrayList;
+import javax.persistence.*;
+
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "enterprise")
 public class Enterprise {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String name;
+    @Column
     private String document;
+    @Column
     private String phone;
+    @Column
     private String adress;
-    private ArrayList<Employee> users;
-    private ArrayList<Transaction> transactions;
-    private Date createdAt;
-    private Date updatedAt;
+    //@Column
+    //private List<Employee> users;
+    //@Column
+    //private List<Transaction> transactions;
+    @Column
+    private Date createdAt = new Date();
+    @Column
+    private Date updatedAt = new Date();
 
-    public Enterprise(@NonNull long id, String name,
-                      String document,
-                      String phone,
-                      String adress,
-                      ArrayList<Employee> users,
-                      ArrayList<Transaction> transactions,
-                      Date createdAt,
-                      Date updatedAt) {
-        this.id = id;
+    public Enterprise(String name, String document, String phone, String adress,
+                      List<Employee> users) {
         this.name = name;
         this.document = document;
         this.phone = phone;
         this.adress = adress;
-        this.users = users;
-        this.transactions = transactions;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        //this.users = users;
+    }
+
+    public Enterprise() {
     }
 
     public long getId() {
@@ -70,31 +76,35 @@ public class Enterprise {
         this.adress = adress;
     }
 
-    public ArrayList<Employee> getUsers() {
-        return users;
-    }
+    //public List<Employee> getUsers() {
+    //    return users;
+    //}
 
-    public void setUsers(ArrayList<Employee> users) {
-        this.users = users;
-    }
+    //public void setUsers(List<Employee> users) {
+    //    this.users = users;
+    //}
 
-    public ArrayList<Transaction> getTransactions() {
-        return transactions;
-    }
+    //public List<Transaction> getTransactions() {
+    //    return transactions;
+    //}
 
-    public void setTransactions(ArrayList<Transaction> transactions) {
-        this.transactions = transactions;
-    }
+    //public void setTransactions(List<Transaction> transactions) {
+    //    this.transactions = transactions;
+    //}
 
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

@@ -3,9 +3,9 @@ package edu.udea.LaBastilla.model;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
-
 
 @Entity
 @Table(name = "employee")
