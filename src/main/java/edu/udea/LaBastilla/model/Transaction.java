@@ -1,33 +1,38 @@
 package edu.udea.LaBastilla.model;
 
+import javax.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String concept;
+    @Column
     private float amount;
-    private Enterprise enterprise;
-    private Employee employee;
-    private Date createdAt;
-    private Date updatedAt;
+    //@Column
+    //private Enterprise enterprise;
+    //@Column
+    //private Employee employee;
+    @Column
+    private Date createdAt = new Date();
+    @Column
+    private Date updatedAt = new Date();
 
 
-    public Transaction(long id, String concept, float amount, Enterprise enterprise, Employee employee, Date createdAt, Date updatedAt) {
-        this.id = id;
+    public Transaction(String concept, float amount,
+                       Enterprise enterprise, Employee employee) {
         this.concept = concept;
         this.amount = amount;
-        this.enterprise = enterprise;
-        this.employee = employee;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        //this.enterprise = enterprise;
+        //this.employee = employee;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public Transaction() {
     }
 
     public long getId() {
@@ -54,13 +59,21 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Enterprise getEmpresa() {
-        return enterprise;
-    }
+    //public Enterprise getEnterprise() {
+    //    return enterprise;
+    //}
 
-    public void setEmpresa(Enterprise enterprise) {
-        this.enterprise = enterprise;
-    }
+    //public void setEnterprise(Enterprise enterprise) {
+    //    this.enterprise = enterprise;
+    //}
+
+    //public Employee getEmployee() {
+    //    return employee;
+    //}
+
+    //public void setEmployee(Employee employee) {
+    //    this.employee = employee;
+    //}
 
     public Date getCreatedAt() {
         return createdAt;
