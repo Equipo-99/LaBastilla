@@ -1,32 +1,42 @@
 package edu.udea.LaBastilla.model;
 
 import edu.udea.LaBastilla.enums.Enum_RoleName;
-import org.springframework.lang.NonNull;
 
-import java.util.*;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
+
+@Entity
+@Table(name = "employee")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String name;
+    @Column
     private String email;
+    @Column
     private Enterprise enterprise;
+    @Column
     private Enum_RoleName role;
-    private ArrayList<Transaction> transactions;
+    @Column
+    private List<Transaction> transactions;
+    @Column
     private Date createdAt;
+    @Column
     private Date updatedAt;
 
-    public Employee(@NonNull long id, String name, String email,
-                    Enterprise enterprise, Enum_RoleName role,
-                    ArrayList<Transaction> transactions,
-                    Date createdAt, Date updatedAt) {
-        this.id = id;
+    public Employee(String name, String email,
+                    Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
         this.role = role;
-        this.transactions = transactions;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    }
+
+    public Employee() {
     }
 
     public long getId() {
@@ -69,11 +79,11 @@ public class Employee {
         this.role = role;
     }
 
-    public ArrayList<Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<Transaction> transactions) {
+    public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
 

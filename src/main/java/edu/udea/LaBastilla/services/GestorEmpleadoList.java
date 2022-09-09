@@ -2,24 +2,22 @@ package edu.udea.LaBastilla.services;
 
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 import edu.udea.LaBastilla.model.Employee;
-import edu.udea.LaBastilla.model.Enterprise;
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
-import java.util.Date;
+
 
 @Service
-public class GestorEmpleado {
+public class GestorEmpleadoList {
     private ArrayList<Employee> employees;
 
-    public GestorEmpleado(ArrayList<Employee> empleados) {
+    public GestorEmpleadoList(ArrayList<Employee> empleados) {
         this.employees = new ArrayList<>();
-        this.employees.add(new Employee(1, "PersonaUno", "personauno@gmail.com",
-                 null, Enum_RoleName.Administrador, null,
-                           new Date(), new Date()));
-        this.employees.add(new Employee(2, "PersonaDos", "personados@gmail.com",
-                 null, Enum_RoleName.Operario, null,
-                           new Date(), new Date()));
+        this.employees.add(new Employee("PersonaUno", "personauno@gmail.com",
+                 null, Enum_RoleName.Administrador));
+        this.employees.add(new Employee("PersonaDos", "personados@gmail.com",
+                 null, Enum_RoleName.Operario));
     }
 
     public Employee getEmployee (String nombreEmpleado) throws Exception {
