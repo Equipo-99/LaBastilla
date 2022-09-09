@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,6 +57,7 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
         if (employeeUpdated.getRole() != null) {
             employeeDB.setRole(employeeUpdated.getRole());
         }
+        employeeDB.setUpdatedAt(new Date());
         return repository.save(employeeDB);
     }
 

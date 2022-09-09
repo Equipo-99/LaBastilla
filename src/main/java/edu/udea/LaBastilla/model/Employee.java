@@ -20,13 +20,14 @@ public class Employee {
     //@Column
     //private Enterprise enterprise;
     @Column
+    @Enumerated(EnumType.STRING)
     private Enum_RoleName role;
     //@Column
     //private List<Transaction> transactions;
     @Column
-    private Date createdAt;
+    private Date createdAt = new Date();
     @Column
-    private Date updatedAt;
+    private Date updatedAt = new Date();
 
     public Employee(String name, String email,
                     Enterprise enterprise, Enum_RoleName role) {
