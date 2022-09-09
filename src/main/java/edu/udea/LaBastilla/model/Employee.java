@@ -17,12 +17,12 @@ public class Employee {
     private String name;
     @Column
     private String email;
-    @Column
-    private Enterprise enterprise;
+    //@Column
+    //private Enterprise enterprise;
     @Column
     private Enum_RoleName role;
-    @Column
-    private List<Transaction> transactions;
+    //@Column
+    //private List<Transaction> transactions;
     @Column
     private Date createdAt;
     @Column
@@ -32,7 +32,7 @@ public class Employee {
                     Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
-        this.enterprise = enterprise;
+        //this.enterprise = enterprise;
         this.role = role;
     }
 
@@ -63,13 +63,13 @@ public class Employee {
         this.email = email;
     }
 
-    public Enterprise getEnterprise() {
-        return enterprise;
-    }
+    //public Enterprise getEnterprise() {
+    //    return enterprise;
+    //}
 
-    public void setEnterprise(Enterprise enterprise) {
-        this.enterprise = enterprise;
-    }
+    //public void setEnterprise(Enterprise enterprise) {
+    //    this.enterprise = enterprise;
+    //}
 
     public Enum_RoleName getRole() {
         return role;
@@ -79,13 +79,13 @@ public class Employee {
         this.role = role;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
+    //public List<Transaction> getTransactions() {
+    //    return transactions;
+    //}
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
+    //public void setTransactions(List<Transaction> transactions) {
+    //    this.transactions = transactions;
+    //}
 
     public Date getCreatedAt() {
         return createdAt;

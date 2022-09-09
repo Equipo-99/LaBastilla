@@ -50,9 +50,9 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
         if (employeeUpdated.getEmail() != null && !employeeUpdated.getEmail().equals("")){
             employeeDB.setEmail(employeeUpdated.getEmail());
         }
-        if (employeeUpdated.getEnterprise() != null){
-            employeeDB.setEnterprise(employeeUpdated.getEnterprise());
-        }
+        //if (employeeUpdated.getEnterprise() != null){
+        //    employeeDB.setEnterprise(employeeUpdated.getEnterprise());
+        //}
         if (employeeUpdated.getRole() != null) {
             employeeDB.setRole(employeeUpdated.getRole());
         }
