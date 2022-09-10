@@ -34,11 +34,11 @@ public class TestModels {
         System.out.println("El nuevo nombre de la empresa es: " + objetoEnterprise.getName());
     
         //Es posible leer y modificar la dirección de la empresa
-        String direccion_antigua = objetoEnterprise.getAdress();
+        String direccion_antigua = objetoEnterprise.getAddress();
         System.out.println("La dirección antigua de la empresa es: " + direccion_antigua);    
         String direccion_nueva = "Calle sexta";
-        objetoEnterprise.setAdress(direccion_nueva);
-        System.out.println("La dirección nueva de la empresa es: " + objetoEnterprise.getAdress());
+        objetoEnterprise.setAddress(direccion_nueva);
+        System.out.println("La dirección nueva de la empresa es: " + objetoEnterprise.getAddress());
     
         //Es posible leer y modificar el teléfono de la empresa
         String telefono_antiguo = objetoEnterprise.getPhone();

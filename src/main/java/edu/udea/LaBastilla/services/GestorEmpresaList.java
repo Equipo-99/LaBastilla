@@ -45,15 +45,15 @@ public class GestorEmpresaList {
             if(enterpriseUpdate.getPhone() != null && !enterpriseUpdate.getPhone().equals("")){
                 enterpriseSaved.setPhone(enterpriseUpdate.getPhone());
             }
-            if(enterpriseUpdate.getAdress() != null && !enterpriseUpdate.getAdress().equals("")){
-                enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
+            if(enterpriseUpdate.getAddress() != null && !enterpriseUpdate.getAddress().equals("")){
+                enterpriseSaved.setAddress(enterpriseUpdate.getAddress());
             }
-            //if(enterpriseUpdate.getUsers() != null){
-            //    enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
-            //}
-            //if(enterpriseUpdate.getTransactions() != null){
-            //    enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
-            //}
+            if(enterpriseUpdate.getUsers() != null){
+                enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
+            }
+            if(enterpriseUpdate.getTransactions() != null){
+                enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
+            }
             if(enterpriseUpdate.getCreatedAt() != null){
                 enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
             }
@@ -71,9 +71,9 @@ public class GestorEmpresaList {
             enterpriseSaved.setName(enterpriseUpdate.getName());
             enterpriseSaved.setDocument(enterpriseUpdate.getDocument());
             enterpriseSaved.setPhone(enterpriseUpdate.getPhone());
-            enterpriseSaved.setAdress(enterpriseUpdate.getAdress());
-            //enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
-            //enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
+            enterpriseSaved.setAddress(enterpriseUpdate.getAddress());
+            enterpriseSaved.setUsers(enterpriseUpdate.getUsers());
+            enterpriseSaved.setTransactions(enterpriseUpdate.getTransactions());
             enterpriseSaved.setCreatedAt(enterpriseUpdate.getCreatedAt());
             enterpriseSaved.setUpdatedAt(enterpriseUpdate.getUpdatedAt());
             return enterpriseSaved;

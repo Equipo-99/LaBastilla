@@ -1,5 +1,6 @@
 package edu.udea.LaBastilla.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 
 import javax.persistence.*;
@@ -17,13 +18,14 @@ public class Employee {
     private String name;
     @Column
     private String email;
-    //@Column
-    //private Enterprise enterprise;
+    @ManyToOne
+    private Enterprise enterprise;
     @Column
     @Enumerated(EnumType.STRING)
     private Enum_RoleName role;
-    //@Column
-    //private List<Transaction> transactions;
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    private List<Transaction> transactions;
     @Column
     private Date createdAt = new Date();
     @Column
@@ -33,7 +35,7 @@ public class Employee {
                     Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
-        //this.enterprise = enterprise;
+        this.enterprise = enterprise;
         this.role = role;
     }
 
@@ -64,13 +66,13 @@ public class Employee {
         this.email = email;
     }
 
-    //public Enterprise getEnterprise() {
-    //    return enterprise;
-    //}
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
 
-    //public void setEnterprise(Enterprise enterprise) {
-    //    this.enterprise = enterprise;
-    //}
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
 
     public Enum_RoleName getRole() {
         return role;
@@ -80,13 +82,13 @@ public class Employee {
         this.role = role;
     }
 
-    //public List<Transaction> getTransactions() {
-    //    return transactions;
-    //}
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
 
-    //public void setTransactions(List<Transaction> transactions) {
-    //    this.transactions = transactions;
-    //}
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 
     public Date getCreatedAt() {
         return createdAt;

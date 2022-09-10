@@ -1,5 +1,7 @@
 package edu.udea.LaBastilla.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -18,23 +20,25 @@ public class Enterprise {
     @Column
     private String phone;
     @Column
-    private String adress;
-    //@Column
-    //private List<Employee> users;
-    //@Column
-    //private List<Transaction> transactions;
+    private String address;
+    @OneToMany(mappedBy = "enterprise")
+    @JsonIgnore
+    private List<Employee> users;
+    @OneToMany(mappedBy = "enterprise")
+    @JsonIgnore
+    private List<Transaction> transactions;
     @Column
     private Date createdAt = new Date();
     @Column
     private Date updatedAt = new Date();
 
-    public Enterprise(String name, String document, String phone, String adress,
+    public Enterprise(String name, String document, String phone, String address,
                       List<Employee> users) {
         this.name = name;
         this.document = document;
         this.phone = phone;
-        this.adress = adress;
-        //this.users = users;
+        this.address = address;
+        this.users = users;
     }
 
     public Enterprise() {
@@ -68,29 +72,29 @@ public class Enterprise {
         this.phone = phone;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    //public List<Employee> getUsers() {
-    //    return users;
-    //}
+    public List<Employee> getUsers() {
+        return users;
+    }
 
-    //public void setUsers(List<Employee> users) {
-    //    this.users = users;
-    //}
+    public void setUsers(List<Employee> users) {
+        this.users = users;
+    }
 
-    //public List<Transaction> getTransactions() {
-    //    return transactions;
-    //}
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
 
-    //public void setTransactions(List<Transaction> transactions) {
-    //    this.transactions = transactions;
-    //}
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 
     public Date getCreatedAt() {
         return createdAt;

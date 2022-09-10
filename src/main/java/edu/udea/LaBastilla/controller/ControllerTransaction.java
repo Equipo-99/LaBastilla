@@ -15,18 +15,28 @@ public class ControllerTransaction {
     @Autowired
     private ServicesTransaction servicesTransaction;
 
-    @GetMapping("/enterprises/{id}/movements")
-    public ResponseEntity<Object> getTransactions(@PathVariable Long id){
+    @GetMapping("/users/{id}/movements")
+    public ResponseEntity<Object> getTransactionsbyEmployee(@PathVariable Long id){
         try {
-            Transaction transaction = servicesTransaction.getTransaction(id);
-            return new ResponseEntity<>(transaction, HttpStatus.OK);
+            List<Transaction> transactions = servicesTransaction.findByEmployee(id);
+            return new ResponseEntity<>(transactions, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/enterprises/{id}/movements")
+    public ResponseEntity<Object> getTransactionsbyEnterprise(@PathVariable Long id){
+        try {
+            List<Transaction> transactions = servicesTransaction.findByEnterprise(id);
+            return new ResponseEntity<>(transactions, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/enterprises/{id}/movements")
-    public ResponseEntity<String> putTransaction(@RequestBody Transaction transaction, @PathVariable Long id){
+    public ResponseEntity<String> postTransaction(@RequestBody Transaction transaction, @PathVariable Long id){
         try {
             String mensaje = servicesTransaction.setTransaction(transaction);
             return new ResponseEntity<>(mensaje, HttpStatus.OK);
@@ -46,9 +56,9 @@ public class ControllerTransaction {
     }
 
     @DeleteMapping("/enterprises/{id}/movements")
-    public ResponseEntity<ObjetoRespuesta> deleteTransaction(@PathVariable Long id){
+    public ResponseEntity<ObjetoRespuesta> deleteTransactions(@PathVariable Long id){
         try {
-            String mensaje = servicesTransaction.deleteTransaction(id);
+            String mensaje = servicesTransaction.deleteTransactions();
             return new ResponseEntity<>(new ObjetoRespuesta(mensaje, null), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(), null), HttpStatus.INTERNAL_SERVER_ERROR);

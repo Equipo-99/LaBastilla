@@ -14,22 +14,21 @@ public class Transaction {
     private String concept;
     @Column
     private float amount;
-    //@Column
-    //private Enterprise enterprise;
-    //@Column
-    //private Employee employee;
+    @ManyToOne
+    private Enterprise enterprise;
+    @ManyToOne
+    private Employee employee;
     @Column
     private Date createdAt = new Date();
     @Column
     private Date updatedAt = new Date();
 
-
     public Transaction(String concept, float amount,
                        Enterprise enterprise, Employee employee) {
         this.concept = concept;
         this.amount = amount;
-        //this.enterprise = enterprise;
-        //this.employee = employee;
+        this.enterprise = enterprise;
+        this.employee = employee;
     }
 
     public Transaction() {
@@ -59,21 +58,21 @@ public class Transaction {
         this.amount = amount;
     }
 
-    //public Enterprise getEnterprise() {
-    //    return enterprise;
-    //}
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
 
-    //public void setEnterprise(Enterprise enterprise) {
-    //    this.enterprise = enterprise;
-    //}
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
 
-    //public Employee getEmployee() {
-    //    return employee;
-    //}
+    public Employee getEmployee() {
+        return employee;
+    }
 
-    //public void setEmployee(Employee employee) {
-    //    this.employee = employee;
-    //}
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public Date getCreatedAt() {
         return createdAt;

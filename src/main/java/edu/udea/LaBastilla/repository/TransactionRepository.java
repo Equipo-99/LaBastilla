@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    //@Query("SELECT * from Transaction WHERE employee_id= ?")
-    //public List<Transaction> findByEmployee(Long id);
+    @Query("SELECT t from Transaction t WHERE employee_id = :id")
+    public List<Transaction> findByEmployee(Long id);
 
-    //@Query("SELECT * from Transaction WHERE employee_id in (SELECT id from employee where enterprise_id = ?")
-    //public List<Transaction> findbyEnterprise(Long id);
+    @Query("SELECT t from Transaction t WHERE enterprise_id = :id")
+    public List<Transaction> findbyEnterprise(Long id);
 }

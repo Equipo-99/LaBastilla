@@ -47,9 +47,9 @@ public class GestorEmpleadoList {
             employeeDB.setId(employeeUpdated.getId());
             employeeDB.setName(employeeUpdated.getName());
             employeeDB.setEmail(employeeUpdated.getEmail());
-            //employeeDB.setEnterprise(employeeUpdated.getEnterprise());
+            employeeDB.setEnterprise(employeeUpdated.getEnterprise());
             employeeDB.setRole(employeeUpdated.getRole());
-            //employeeDB.setTransactions(employeeUpdated.getTransactions());
+            employeeDB.setTransactions(employeeUpdated.getTransactions());
             employeeDB.setCreatedAt(employeeUpdated.getCreatedAt());
             employeeDB.setUpdatedAt(employeeUpdated.getUpdatedAt());
             return employeeDB;
@@ -70,9 +70,9 @@ public class GestorEmpleadoList {
             if (employeeUpdated.getRole() != null){
                 employeeDB.setRole(employeeUpdated.getRole());
             }
-            //if (employeeUpdated.getTransactions() != null){
-            //    employeeDB.setTransactions(employeeUpdated.getTransactions());
-            //}
+            if (employeeUpdated.getTransactions() != null){
+                employeeDB.setTransactions(employeeUpdated.getTransactions());
+            }
             if (employeeUpdated.getCreatedAt() != null){
                 employeeDB.setCreatedAt(employeeUpdated.getCreatedAt());
             }

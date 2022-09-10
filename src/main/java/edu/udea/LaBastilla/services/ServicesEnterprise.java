@@ -54,12 +54,12 @@ public class ServicesEnterprise implements ServicesEnterpriseInterface {
         if (enterpriseUpdated.getPhone() != null && !enterpriseUpdated.getPhone().equals("")){
             enterpriseDB.setPhone(enterpriseUpdated.getPhone());
         }
-        if (enterpriseUpdated.getAdress() != null && !enterpriseUpdated.getAdress().equals("")){
-            enterpriseDB.setAdress(enterpriseUpdated.getAdress());
+        if (enterpriseUpdated.getAddress() != null && !enterpriseUpdated.getAddress().equals("")){
+            enterpriseDB.setAddress(enterpriseUpdated.getAddress());
         }
-        //if (enterpriseUpdated.getUsers() != null){
-        //    enterpriseDB.setUsers(enterpriseUpdated.getUsers());
-        //}
+        if (enterpriseUpdated.getUsers() != null){
+            enterpriseDB.setUsers(enterpriseUpdated.getUsers());
+        }
         enterpriseDB.setUpdatedAt(new Date());
         return repository.save(enterpriseDB);
     }

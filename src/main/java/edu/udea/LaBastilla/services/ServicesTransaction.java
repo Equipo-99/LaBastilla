@@ -46,26 +46,26 @@ public class ServicesTransaction {
         if (transactionUpdated.getAmount() != 0.0){
             transactionDB.setAmount(transactionUpdated.getAmount());
         }
-        //if (transactionUpdated.getEnterprise() != null){
-        //    transactionDB.setEnterprise(transactionUpdated.getEnterprise());
-        //}
-        //if (transactionUpdated.getEmployee() != null){
-        //    transactionDB.setEmployee(transactionUpdated.getEmployee());
-        //}
+        if (transactionUpdated.getEnterprise() != null){
+            transactionDB.setEnterprise(transactionUpdated.getEnterprise());
+        }
+        if (transactionUpdated.getEmployee() != null){
+            transactionDB.setEmployee(transactionUpdated.getEmployee());
+        }
         transactionDB.setUpdatedAt(new Date());
         return repository.save(transactionDB);
     }
 
-    public String deleteTransaction(Long id) {
-        repository.deleteById(id);
-        return "Transacción eliminada exitosamente";
+    public String deleteTransactions() {
+        repository.deleteAll();
+        return "Transacciones eliminada exitosamente";
     }
 
-    //public List<Transaction> findByEmployee(Long id) {
-    //    return repository.findByEmployee(id);
-    //}
+    public List<Transaction> findByEmployee(Long id) {
+        return repository.findByEmployee(id);
+    }
 
-    //public List<Transaction> findByEnterprise(Long id) {
-    //    return repository.findbyEnterprise(id);
-    //}
+    public List<Transaction> findByEnterprise(Long id) {
+        return repository.findbyEnterprise(id);
+    }
 }
