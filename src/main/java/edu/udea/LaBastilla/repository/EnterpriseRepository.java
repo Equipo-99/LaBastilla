@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 //Aquí finalizan los import
 
-/*CLASE DE INTERFAZ PARA LA EMPRESA */
+/*CLASE DE INTERFAZ PARA LA EMPRESA CON JPA */
 
 @Repository
 public interface EnterpriseRepository extends JpaRepository<Enterprise, Long> {}

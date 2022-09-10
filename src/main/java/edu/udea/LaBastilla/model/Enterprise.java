@@ -1,39 +1,50 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-
 import java.util.Date;
 import java.util.List;
+//Aquí finalizan los import
+
+/*CLASE MODELO PARA EMPRESA. SE CREA UNA TABLA Y DOS
+ * RELACIONES PARA EMPLEADOS Y TRANSACCIONES DADO EL 
+ * DIAGRAMA DE ENTIDAD RELACIÓN*/
 
 @Entity
 @Table(name = "enterprise")
 public class Enterprise {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String name;
+
     @Column
     private String document;
+
     @Column
     private String phone;
+
     @Column
     private String address;
+
     @OneToMany(mappedBy = "enterprise")
     @JsonIgnore
     private List<Employee> users;
+
     @OneToMany(mappedBy = "enterprise")
     @JsonIgnore
     private List<Transaction> transactions;
+
     @Column
     private Date createdAt = new Date();
+
     @Column
     private Date updatedAt = new Date();
 
-    public Enterprise(String name, String document, String phone, String address,
-                      List<Employee> users) {
+    public Enterprise(String name, String document, String phone, String address, List<Employee> users) {
         this.name = name;
         this.document = document;
         this.phone = phone;
@@ -41,8 +52,7 @@ public class Enterprise {
         this.users = users;
     }
 
-    public Enterprise() {
-    }
+    public Enterprise() {}
 
     public long getId() {
         return id;

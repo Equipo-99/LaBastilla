@@ -1,8 +1,10 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.services;
-
 import edu.udea.LaBastilla.model.Employee;
-
 import java.util.List;
+//Aquí finalizan los import
+
+/*CLASE DE INTERFAZ PARA EL EMPLEADO */
 
 public interface ServicesEmployeeInterface {
     public List<Employee> getEmployees();

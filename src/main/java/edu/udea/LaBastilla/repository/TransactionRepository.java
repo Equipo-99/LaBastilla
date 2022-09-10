@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 //Aquí inician los import
 
-/*CLASE DE INTERFAZ PARA LAS TRANSACCIONES*/
+/*CLASE DE INTERFAZ PARA LAS TRANSACCIONES CON JPA*/
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {

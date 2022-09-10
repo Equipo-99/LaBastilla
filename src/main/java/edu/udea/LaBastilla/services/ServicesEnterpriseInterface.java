@@ -1,8 +1,10 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.services;
-
 import edu.udea.LaBastilla.model.Enterprise;
-
 import java.util.List;
+//Aquí finalizan los import
+
+/*CLASE DE INTERFAZ PARA LA EMPRESA*/
 
 public interface ServicesEnterpriseInterface {
     public List<Enterprise> getEnterprises();

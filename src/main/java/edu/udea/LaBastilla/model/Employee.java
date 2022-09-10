@@ -7,6 +7,10 @@ import java.util.Date;
 import java.util.List;
 //Aquí finalizan los import
 
+/*CLASE MODELO PARA EMPLEADO. SE CREA UNA TABLA Y DOS
+ * RELACIONES PARA EMPRESAS Y TRANSACCIONES DADO EL 
+ * DIAGRAMA DE ENTIDAD RELACIÓN*/
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -34,12 +38,11 @@ public class Employee {
 
     @Column
     private Date createdAt = new Date();
-    
+
     @Column
     private Date updatedAt = new Date();
 
-    public Employee(String name, String email,
-                    Enterprise enterprise, Enum_RoleName role) {
+    public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;

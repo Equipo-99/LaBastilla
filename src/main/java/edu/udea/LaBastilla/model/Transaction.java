@@ -1,38 +1,47 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.model;
-
 import javax.persistence.*;
-
 import java.util.Date;
+//Aquí finalizan los import
+
+/*CLASE MODELO PARA TRANSACCIONES. SE CREA UNA TABLA Y DOS
+ * RELACIONES PARA EMPLEADOS Y EMPRESA DADO EL 
+ * DIAGRAMA DE ENTIDAD RELACIÓN*/
 
 @Entity
 @Table(name = "transactions")
 public class Transaction {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String concept;
+
     @Column
     private float amount;
+
     @ManyToOne
     private Enterprise enterprise;
+
     @ManyToOne
     private Employee employee;
+
     @Column
     private Date createdAt = new Date();
+
     @Column
     private Date updatedAt = new Date();
 
-    public Transaction(String concept, float amount,
-                       Enterprise enterprise, Employee employee) {
+    public Transaction(String concept, float amount, Enterprise enterprise, Employee employee) {
         this.concept = concept;
         this.amount = amount;
         this.enterprise = enterprise;
         this.employee = employee;
     }
 
-    public Transaction() {
-    }
+    public Transaction() {}
 
     public long getId() {
         return id;
