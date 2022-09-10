@@ -1,33 +1,40 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
-
 import javax.persistence.*;
-
 import java.util.Date;
 import java.util.List;
+//Aquí finalizan los import
 
 @Entity
 @Table(name = "employee")
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String name;
+
     @Column
     private String email;
+
     @ManyToOne
     private Enterprise enterprise;
+
     @Column
     @Enumerated(EnumType.STRING)
     private Enum_RoleName role;
+
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
     private List<Transaction> transactions;
+
     @Column
     private Date createdAt = new Date();
+    
     @Column
     private Date updatedAt = new Date();
 
@@ -39,8 +46,7 @@ public class Employee {
         this.role = role;
     }
 
-    public Employee() {
-    }
+    public Employee() {}
 
     public long getId() {
         return id;
