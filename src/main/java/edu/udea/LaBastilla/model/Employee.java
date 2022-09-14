@@ -42,11 +42,15 @@ public class Employee {
     @Column
     private Date updatedAt = new Date();
 
-    public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
+    public Employee(long id, String name, String email, Enterprise enterprise, Enum_RoleName role, List<Transaction> transactions, Date createdAt, Date updatedAt) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
         this.role = role;
+        this.transactions = transactions;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Employee() {}

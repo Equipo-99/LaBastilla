@@ -17,7 +17,7 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
 
     //Variable de conexión al repositorio del empleado
     @Autowired
-    private EmployeeRepository repository;
+    private EmployeeRepository repository;    
 
     //Método para obtener todos los empleados con JPA
     @Override

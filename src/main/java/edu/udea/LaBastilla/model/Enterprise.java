@@ -44,12 +44,16 @@ public class Enterprise {
     @Column
     private Date updatedAt = new Date();
 
-    public Enterprise(String name, String document, String phone, String address, List<Employee> users) {
+    public Enterprise(long id, String name, String document, String phone, String address, List<Employee> users, List<Transaction> transactions, Date createdAt, Date updatedAt) {
+        this.id = id;
         this.name = name;
         this.document = document;
         this.phone = phone;
         this.address = address;
         this.users = users;
+        this.transactions = transactions;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Enterprise() {}

@@ -1,5 +1,7 @@
 //Aquí inician los import
 package edu.udea.LaBastilla.services;
+import edu.udea.LaBastilla.model.Employee;
+import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.model.Transaction;
 import edu.udea.LaBastilla.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,17 @@ public class ServicesTransaction {
     //Variable de conexión al repositorio de los movimientos
     @Autowired
     private TransactionRepository repository;
+
+    @Autowired
+    private ServicesEnterprise empresaServicio;
+
+    @Autowired
+    private ServicesEmployee empleadoServicio;
+
+    public ServicesTransaction(ServicesEnterprise empresaServicio, ServicesEmployee empleadoServicio){
+        this.empresaServicio = empresaServicio;
+        this.empleadoServicio = empleadoServicio;
+    }
 
     //Método para obtener todas las transacciones
     public List<Transaction> getTransactions() {
@@ -44,9 +57,22 @@ public class ServicesTransaction {
 
     //Método para crear un nuevo movimiento con JPA
     public String setTransaction(Transaction newTransaction) {
-        repository.save(newTransaction);
-        return "Transacción creada exitosamente";
-    }
+        try {
+            //Permite retornar el ID del empleado, para así crear una transacción
+            Employee empleado = this.empleadoServicio.getEmployee(newTransaction.getEmployee().getId());
+            newTransaction.setEmployee(empleado);
+
+            //Permite retornar el ID de la empresa, para así crear una transacción
+            Enterprise empresa = this.empresaServicio.getEnterprise(newTransaction.getEnterprise().getId());
+            newTransaction.setEnterprise(empresa);
+
+            repository.save(newTransaction);
+            return "Transacción creada exitosamente";
+        } 
+        catch (Exception e) {
+            return "No se pudo realizar la operación";
+        }
+    }        
 
     //Método para actualizar todos los atributos de un movimiento dada su ID con JPA
     @Transactional
