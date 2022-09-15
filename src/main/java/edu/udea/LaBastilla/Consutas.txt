@@ -22,5 +22,5 @@ PARA CREAR UNA TRANSACCIÓN:
     "concept": "Compra almuerzos",
     "amount": 45000.0,
     "enterprise": {"id": 1},
-    "employee": {"id": 1},        
+    "employee": {"id": 1}        
 }
