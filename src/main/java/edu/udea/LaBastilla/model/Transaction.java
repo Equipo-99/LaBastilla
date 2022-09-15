@@ -34,16 +34,11 @@ public class Transaction {
     @Column
     private Date updatedAt = new Date();
 
-    
-
-    public Transaction(long id, String concept, float amount, Enterprise enterprise, Employee employee, Date createdAt, Date updatedAt) {
-        this.id = id;
+    public Transaction(String concept, float amount, Enterprise enterprise, Employee employee) {
         this.concept = concept;
         this.amount = amount;
         this.enterprise = enterprise;
         this.employee = employee;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Transaction() {}

@@ -4,7 +4,6 @@ import edu.udea.LaBastilla.model.Employee;
 import edu.udea.LaBastilla.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -39,13 +38,6 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
     public String setEmployee(Employee newEmployee) {
         repository.save(newEmployee);
         return "Usuario creado exitosamente";
-    }
-
-    //Método para actualizar todos los atributos del empleado dada su ID con JPA
-    @Transactional
-    @Override
-    public Employee updateEmployeeAll(Employee employeeUpdated, Long id) {
-        return repository.save(employeeUpdated);
     }
 
     //Método para actualizar algunos de los atributos del empleado dada su ID con JPA

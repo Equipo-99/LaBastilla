@@ -51,18 +51,6 @@ public class ControllerEnterprise {
         }
     }
 
-    //Controlador PUT para actualizar todos los atributos de una empresa dada su ID
-    @PutMapping("/enterprises/{id}")
-    public ResponseEntity<ObjetoRespuesta> putEmpresa(@RequestBody Enterprise enterpriseUpdated, @PathVariable Long id){
-        try {
-            Enterprise enterpriseGuardada = servicesEnterprise.updateEnterpriseAll(enterpriseUpdated, id);
-            return new ResponseEntity<>(new ObjetoRespuesta("Actualizacion exitosa", enterpriseGuardada),HttpStatus.OK);
-        }
-        catch (Exception e){
-            return new ResponseEntity<>(new ObjetoRespuesta(e.getMessage(),null),HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     //Controlador PATCH para actualizar algunos atributos de la empresa dada su ID
     @PatchMapping("/enterprises/{id}")
     public ResponseEntity<ObjetoRespuesta> patchEmpresa(@RequestBody Enterprise enterpriseUpdated, @PathVariable Long id){

@@ -4,7 +4,6 @@ import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.repository.EnterpriseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -39,13 +38,6 @@ public class ServicesEnterprise implements ServicesEnterpriseInterface {
     public String setEnterprise(Enterprise newEnterprise) {
         repository.save(newEnterprise);
         return "Empresa creada exitosamente";
-    }
-
-    //Método para actualizar todos los atributos de la empresa dada su ID con JPA
-    @Transactional
-    @Override
-    public Enterprise updateEnterpriseAll(Enterprise enterpriseUpdated, Long id) {
-        return repository.save(enterpriseUpdated);
     }
 
     //Método para actualizar algunos de los atributos de la empresa dada su ID con JPA
