@@ -44,18 +44,22 @@
                 <div class="row">
                     <div class="col-sm-1 align-items-center"><br></div>
                     <div class="col-sm-10 align-items-center">
-                        <form>
+                        <form th:object="${enterprise}" method="post" th:action="@{/enterprise/new}">
                             <div class="mb-3">
                                 <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" th:field="*{name}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Dirección</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" th:field="*{address}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Documento</label>
+                                <input type="text" class="form-control" th:field="*{document}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Teléfono</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" th:field="*{phone}">
                             </div>
                             <div class="row mx-auto">
                                 <button type="submit" class="btn btn-info">Ingresar</button>
