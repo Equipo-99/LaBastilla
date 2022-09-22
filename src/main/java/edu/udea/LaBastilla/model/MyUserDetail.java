@@ -1,8 +1,13 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.model;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+//Aquí finalizan los import
+
+/*CLASE MODELO PARA LOS DETALLES DEL USUARIO. NECESARIA PARA LA
+ * CONFIGURACIÓN DE SEGURIDAD*/
 
 public class MyUserDetail implements UserDetails{
 

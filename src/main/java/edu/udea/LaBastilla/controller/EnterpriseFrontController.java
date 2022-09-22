@@ -1,3 +1,4 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,10 +8,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.services.ServicesEnterpriseInterface;
+//Aquí finalizan los import
+
+/*CLASE DE CONTROLADOR PARA LA CONEXIÓN CON EL FRONTEND DE LA
+ * EMPRESA*/
 
 @Controller
 public class EnterpriseFrontController {
 
+    //Variable de apoyo para la interfaz de servicios de la empresa
     @Autowired
     private ServicesEnterpriseInterface servicesEnterpriseInterface;
 
@@ -25,7 +31,7 @@ public class EnterpriseFrontController {
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
         try {
             String mensaje = servicesEnterpriseInterface.setEnterprise(enterprise);
-            return "redirect:/newEnterprise";
+            return "tableEnterprises";
         } 
         catch (Exception e) {
             return "redirect:/error";
