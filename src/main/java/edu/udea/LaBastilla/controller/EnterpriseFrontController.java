@@ -1,6 +1,7 @@
 package edu.udea.LaBastilla.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,11 +9,12 @@ import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.services.ServicesEnterpriseInterface;
 
 @Controller
-public class FrontEndController {
+public class EnterpriseFrontController {
 
     @Autowired
     private ServicesEnterpriseInterface servicesEnterpriseInterface;
 
+    //Controlador para redireccionar a la página de inicio
     @GetMapping("/")
     public String getIndex(){
         return "index";
@@ -23,11 +25,25 @@ public class FrontEndController {
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
         try {
             String mensaje = servicesEnterpriseInterface.setEnterprise(enterprise);
-            return "redirect:/empresasTabla";
+            return "redirect:/newEnterprise";
         } 
         catch (Exception e) {
             return "redirect:/error";
         }
+    }
+
+    //Controlador para redireccionar a la página de crear nueva empresa
+    @GetMapping("/enterprise/new")
+    public String setEnterprise(Model model){
+        model.addAttribute("enterprise", new Enterprise());
+        return "newEnterprise";
+    }
+
+    //Controlador para redireccionar a la página de ver todas las empresas
+    @GetMapping("/enterprises")
+    public String getEnterprises(Model model){
+        model.addAttribute("enterprise", new Enterprise());
+        return "tableEnterprises";
     }
     
 }

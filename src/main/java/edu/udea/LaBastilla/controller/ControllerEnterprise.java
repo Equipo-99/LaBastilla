@@ -22,10 +22,10 @@ public class ControllerEnterprise {
     private ServicesEnterpriseInterface servicesEnterprise;
 
     //Controlador GET para obtener los datos de todas las empresas registradas
-    @GetMapping("/enterprises")
+    /*@GetMapping("/enterprises")
     public ResponseEntity<List<Enterprise>> getEmpresas(){
         return new ResponseEntity<>(servicesEnterprise.getEnterprises(), HttpStatus.OK);
-    }
+    }*/
 
     //Controlador GET para obtener los datos de una empresa dada su ID
     @GetMapping("/enterprises/{id}")
