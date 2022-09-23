@@ -18,7 +18,7 @@ public class EnterpriseFrontController {
 
     //Variable de apoyo para la interfaz de servicios de la empresa
     @Autowired
-    private ServicesEnterpriseInterface servicesEnterpriseInterface;
+    private ServicesEnterpriseInterface servicesEnterprise;
 
     //Controlador para redireccionar a la página de inicio
     @GetMapping("/")
@@ -30,7 +30,7 @@ public class EnterpriseFrontController {
     @PostMapping("/enterprise/new")
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
         try {
-            String mensaje = servicesEnterpriseInterface.setEnterprise(enterprise);
+            String mensaje = servicesEnterprise.setEnterprise(enterprise);
             return "tableEnterprises";
         } 
         catch (Exception e) {
@@ -48,8 +48,8 @@ public class EnterpriseFrontController {
     //Controlador para redireccionar a la página de ver todas las empresas
     @GetMapping("/enterprises")
     public String getEnterprises(Model model){
-        model.addAttribute("enterprise", new Enterprise());
-        return "tableEnterprises";
+        model.addAttribute("enterprises", servicesEnterprise.getEnterprises());
+        return "enterprises";
     }
     
 }

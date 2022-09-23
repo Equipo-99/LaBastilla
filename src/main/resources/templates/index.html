@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>-SGIE- Inicio</title>
+    <title>Inicio · La Bastilla</title>
+    <link rel="shortcut icon" href="/logo.jpg">
 </head>
 <body>
     <div class="container-fluid min-vh-100 d-flex flex-column">
@@ -19,11 +20,11 @@
                 </div>
                 <br>
                 <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="tableTransactions.html" role="button">Ingresos y egresos</a>                   
+                    <a class="btn btn-secondary" href="/transactions" role="button">Ingresos y egresos</a>
                 </div>
                 <br>
                 <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="tableUsers.html" role="button">Usuarios</a> 
+                    <a class="btn btn-secondary" href="/allusers" role="button">Usuarios</a>
                 </div>
                 <br>
                 <!--Redirecciona a la página de la tabla de las empresas, esto mediante el FrontController-->
@@ -38,7 +39,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Gestión de ingresos y egresos</h5>
                         <p class="card-text">Movimientos de dinero realizados por los empleados y las empresas.</p>
-                        <a href="#" class="btn btn-primary">Ir a los movimientos</a>
+                        <a href="/transactions" class="btn btn-primary">Ir a los movimientos</a>
                     </div>
                 </div>
                 <!--Usuarios registrados (tabla)-->
@@ -47,7 +48,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Gestión de usuarios</h5>
                         <p class="card-text">Información sobre los usuarios registrados en la plataforma.</p>
-                        <a href="#" class="btn btn-primary">Ir a los usuarios</a>
+                        <a href="/allusers" class="btn btn-primary">Ir a los usuarios</a>
                     </div>
                 </div>
                 <!--Empresas registradas (tabla)-->
@@ -56,12 +57,18 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Gestión de empresas</h5>
                         <p class="card-text">Información sobre las empresas registradas en la plataforma.</p>
-                        <a href="#" class="btn btn-primary">Ir a las empresas</a>
+                        <a href="enterprises" class="btn btn-primary">Ir a las empresas</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3">
+            &copy; MisiónTIC 2022. Iconos de:
+            <a href="https://www.flaticon.com/" title="www.flaticon.com">Flaticon</a>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
