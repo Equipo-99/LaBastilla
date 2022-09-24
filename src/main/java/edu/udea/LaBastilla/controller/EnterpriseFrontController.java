@@ -26,6 +26,12 @@ public class EnterpriseFrontController {
         return "index";
     }
 
+    //Controlador para redireccionar a la página de login
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login";
+    }
+
     //Controlador para crear una nueva empresa
     @PostMapping("/enterprise/new")
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
