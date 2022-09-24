@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-sm-1 align-items-center"><br></div>
                     <div class="col-sm-10 align-items-center">
-                        <a class="btn btn-outline-success" href="#" role="button">Nuevo usuario</a>
+                        <a class="btn btn-outline-success" href="/allusers/new" role="button">Nuevo usuario</a>
                         <table class="table table-striped text-center my-2">
                             <thead class="table-dark">
                                 <tr>
@@ -65,13 +65,17 @@
                                     <td th:text="${employee.email}"></td>
                                     <!--td th:text="${employee.profile.getPhone()}"></td-->
                                     <td th:text="${employee.enterprise.getName()}"></td>
-                                    <td th:text="${employee.createdAt}"></td>
-                                    <td th:text="${employee.updatedAt}"></td>
+                                    <td th:text="${#temporals.format(employee.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                                    <td th:text="${#temporals.format(employee.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
                                     <td>
-                                        <form>
-                                            <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                                        <div class="btn-group">
+                                        <form th:action="@{/allusers/edit/{id}(id=${employee.id})}" th:method="get">
+                                            <button type="submit" class="btn btn-warning btn-sm mx-1">Editar</button>
+                                        </form>
+                                        <form th:action="@{/allusers/del/{id}(id=${employee.id})}" th:method="delete">
                                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                         </form>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

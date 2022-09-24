@@ -3,8 +3,9 @@ package edu.udea.LaBastilla.services;
 import edu.udea.LaBastilla.model.Enterprise;
 import edu.udea.LaBastilla.repository.EnterpriseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 //Aquí finalizan los import
@@ -21,7 +22,7 @@ public class ServicesEnterprise implements ServicesEnterpriseInterface {
     //Método para obtener todas las empresas con JPA
     @Override
     public List<Enterprise> getEnterprises() {
-        return repository.findAll();
+        return repository.findAll(Sort.by("id"));
     }
 
     //Método para obtener una empresa dado su ID con JPA
@@ -59,8 +60,7 @@ public class ServicesEnterprise implements ServicesEnterpriseInterface {
         
         if (enterpriseUpdated.getUsers() != null)
             enterpriseDB.setUsers(enterpriseUpdated.getUsers());
-        
-        enterpriseDB.setUpdatedAt(new Date());
+
         return repository.save(enterpriseDB);
     }
 

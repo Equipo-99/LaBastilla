@@ -2,8 +2,12 @@
 package edu.udea.LaBastilla.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
-import java.util.Date;
+
+import java.time.LocalDateTime;
 import java.util.List;
 //Aquí finalizan los import
 
@@ -37,10 +41,12 @@ public class Employee {
     private List<Transaction> transactions;
 
     @Column
-    private Date createdAt = new Date();
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     @Column
-    private Date updatedAt = new Date();
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
@@ -99,19 +105,19 @@ public class Employee {
         this.transactions = transactions;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

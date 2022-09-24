@@ -1,8 +1,12 @@
 //Aquí inician los import
 package edu.udea.LaBastilla.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
-import java.util.Date;
+
+import java.time.LocalDateTime;
 import java.util.List;
 //Aquí finalizan los import
 
@@ -39,10 +43,12 @@ public class Enterprise {
     private List<Transaction> transactions;
 
     @Column
-    private Date createdAt = new Date();
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     @Column
-    private Date updatedAt = new Date();
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     public Enterprise(String name, String document, String phone, String address, List<Employee> users) {
         this.name = name;
@@ -56,6 +62,10 @@ public class Enterprise {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -106,19 +116,34 @@ public class Enterprise {
         this.transactions = transactions;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Enterprise{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", document='" + document + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", users=" + users +
+                ", transactions=" + transactions +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

@@ -3,8 +3,9 @@ package edu.udea.LaBastilla.services;
 import edu.udea.LaBastilla.model.Employee;
 import edu.udea.LaBastilla.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 //Aquí finalizan los import
@@ -21,7 +22,7 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
     //Método para obtener todos los empleados con JPA
     @Override
     public List<Employee> getEmployees() {
-        return repository.findAll();
+        return repository.findAll(Sort.by("id"));
     }
 
     //Método para obtener un empleado dado su ID con JPA
@@ -56,8 +57,7 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
         
         if (employeeUpdated.getRole() != null) 
             employeeDB.setRole(employeeUpdated.getRole());
-        
-        employeeDB.setUpdatedAt(new Date());
+
         return repository.save(employeeDB);
     }
 

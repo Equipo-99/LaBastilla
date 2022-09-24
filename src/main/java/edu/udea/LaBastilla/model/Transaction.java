@@ -1,7 +1,11 @@
 //Aquí inician los import
 package edu.udea.LaBastilla.model;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 //Aquí finalizan los import
 
 /*CLASE MODELO PARA TRANSACCIONES. SE CREA UNA TABLA Y DOS
@@ -29,10 +33,12 @@ public class Transaction {
     private Employee employee;
 
     @Column
-    private Date createdAt = new Date();
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     @Column
-    private Date updatedAt = new Date();
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     public Transaction(String concept, float amount, Enterprise enterprise, Employee employee) {
         this.concept = concept;
@@ -83,19 +89,19 @@ public class Transaction {
         this.employee = employee;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-sm-1 align-items-center"><br></div>
                     <div class="col-sm-10 align-items-center">
-                        <a class="btn btn-outline-success" href="#" role="button">Nueva transacción</a>
+                        <a class="btn btn-outline-success" href="/transactions/new" role="button">Nueva transacción</a>
                         <table class="table table-striped text-center my-2">
                             <thead class="table-dark">
                                 <tr>
@@ -65,13 +65,17 @@
                                     <td th:text="${transaction.amount}"></td>
                                     <td th:text="${transaction.employee.getName()}"></td>
                                     <td th:text="${transaction.enterprise.getName()}"></td>
-                                    <td th:text="${transaction.createdAt}"></td>
-                                    <td th:text="${transaction.updatedAt}"></td>
+                                    <td th:text="${#temporals.format(transaction.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                                    <td th:text="${#temporals.format(transaction.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
                                     <td>
-                                        <form>
-                                            <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                                        <div class="btn-group">
+                                        <form th:action="@{/transactions/edit/{id}(id=${transaction.id})}" th:method="get">
+                                            <button type="submit" class="btn btn-warning btn-sm mx-1">Editar</button>
+                                        </form>
+                                        <form th:action="@{/transactions/del/{id}(id=${transaction.id})}" th:method="delete">
                                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                         </form>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

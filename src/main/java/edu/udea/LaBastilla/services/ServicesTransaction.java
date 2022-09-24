@@ -3,8 +3,9 @@ package edu.udea.LaBastilla.services;
 import edu.udea.LaBastilla.model.Transaction;
 import edu.udea.LaBastilla.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 //Aquí finalizan los import
@@ -20,7 +21,7 @@ public class ServicesTransaction {
 
     //Método para obtener todas las transacciones
     public List<Transaction> getTransactions() {
-        return repository.findAll();
+        return repository.findAll(Sort.by("id"));
     }
 
     //Método para obtener todas las transacciones dada la ID del empleado
@@ -62,8 +63,7 @@ public class ServicesTransaction {
         
         if (transactionUpdated.getEmployee() != null)
             transactionDB.setEmployee(transactionUpdated.getEmployee());
-        
-        transactionDB.setUpdatedAt(new Date());
+
         return repository.save(transactionDB);
     }
 
@@ -71,6 +71,11 @@ public class ServicesTransaction {
     public String deleteTransactions() {
         repository.deleteAll();
         return "Transacciones eliminada exitosamente";
+    }
+
+    public String deleteTransaction(Long id) {
+        repository.deleteById(id);
+        return "Transacción eliminado exitosamente";
     }
 
 }
