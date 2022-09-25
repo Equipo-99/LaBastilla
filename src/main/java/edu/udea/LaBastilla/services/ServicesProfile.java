@@ -3,7 +3,6 @@ import edu.udea.LaBastilla.model.Profile;
 import edu.udea.LaBastilla.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,13 +33,13 @@ public class ServicesProfile implements ServicesProfileInterface {
     @Override
     public Profile updateProfile(Profile profileUpdated, String id) throws Exception {
         Profile profileDB = getProfile(id);
+
         if (profileUpdated.getImage() != null && !profileUpdated.getImage().equals(""))
             profileDB.setImage(profileUpdated.getImage());
 
         if (profileUpdated.getPhone() != null && !profileUpdated.getPhone().equals(""))
             profileDB.setPhone(profileUpdated.getPhone());
 
-        profileDB.setUpdatedAt(new Date());
         return repository.save(profileDB);
 
     }

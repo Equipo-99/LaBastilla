@@ -42,6 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/oauth/**").permitAll()
 
                 .and()
+
+                .formLogin()
+                .loginPage("/login")
+                .usernameParameter("id")
+                .passwordParameter("id")
+                .defaultSuccessUrl("/")
+    
+
+                .and()
                 .oauth2Login()
                 .loginPage("/login")
                 .successHandler(successGoogle)

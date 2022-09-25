@@ -1,6 +1,6 @@
 package edu.udea.LaBastilla.model;
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="profile")
@@ -15,14 +15,14 @@ public class Profile {
     @Column
     private String phone;
 
-    @OneToOne
+    @OneToOne(mappedBy = "profile")
     private Employee employee;
 
     @Column
-    private Date createdAt = new Date();
+    private LocalDateTime createdAt;    
 
     @Column
-    private Date updatedAt = new Date();
+    private LocalDateTime updatedAt;    
 
     public Profile(String id, String image, String phone, Employee employee) {
         this.id = id;
@@ -65,19 +65,19 @@ public class Profile {
         this.employee = employee;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

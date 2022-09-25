@@ -1,5 +1,4 @@
 package edu.udea.LaBastilla.controller;
-
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 import edu.udea.LaBastilla.model.Employee;
 import edu.udea.LaBastilla.services.ServicesEmployeeInterface;
@@ -11,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EmployeeFrontController {
+
     @Autowired
     private ServicesEmployeeInterface servicesEmployee;
-    @Autowired
-    private ServicesEnterpriseInterface servicesEnterprise;
-
     
+    @Autowired
+    private ServicesEnterpriseInterface servicesEnterprise;    
 
     // Ver todos los empleados
     @GetMapping("/allusers")
