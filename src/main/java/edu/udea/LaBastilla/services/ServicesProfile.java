@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServiceProfile implements ServiceProfileInterface{
+public class ServicesProfile implements ServicesProfileInterface {
     @Autowired
     private ProfileRepository repository;
 
@@ -24,7 +24,7 @@ public class ServiceProfile implements ServiceProfileInterface{
         Optional<Profile> profileDB = repository.findById(id);
         if (profileDB.isPresent())
             return profileDB.get();
-        throw new Exception("Usuario no existe");
+        throw new Exception("Perfil no existe");
     }
 
     @Override

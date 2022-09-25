@@ -1,9 +1,8 @@
 package edu.udea.LaBastilla.security;
 
-import edu.udea.LaBastilla.services.ServiceProfileInterface;
+import edu.udea.LaBastilla.services.ServicesProfileInterface;
 import edu.udea.LaBastilla.services.ServicesEmployeeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.webservices.WebServicesProperties;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -19,7 +18,7 @@ import java.io.IOException;
 public class SuccessGoogle implements AuthenticationSuccessHandler {
     @Autowired
     ServicesEmployeeInterface servicesEmployee;
-    ServiceProfileInterface serviceProfile;
+    ServicesProfileInterface servicesProfile;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -28,7 +27,7 @@ public class SuccessGoogle implements AuthenticationSuccessHandler {
         String correoUser = user.getEmail();
         System.out.println(correoUser + " Correo Google!!!");
         try {
-            serviceProfile.getProfile(correoUser);
+            servicesProfile.getProfile(correoUser);
             response.sendRedirect("/");
         } catch (Exception e) {
             e.printStackTrace();

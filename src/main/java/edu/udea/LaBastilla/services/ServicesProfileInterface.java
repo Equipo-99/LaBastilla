@@ -4,7 +4,7 @@ import edu.udea.LaBastilla.model.Profile;
 
 import java.util.List;
 
-public interface ServiceProfileInterface {
+public interface ServicesProfileInterface {
     public List<Profile> getProfiles();
     public Profile getProfile(String id) throws Exception;
     public String setProfile(Profile newProfile);
