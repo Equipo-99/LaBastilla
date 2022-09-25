@@ -21,6 +21,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Autowired
+    SuccessGoogle successGoogle;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService);
@@ -34,13 +37,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-            .antMatchers("/").permitAll()
-            .antMatchers("/login*").permitAll()
-            .antMatchers("/oauth/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/login*").permitAll()
+                .antMatchers("/oauth/**").permitAll()
+                .and()
+                .oauth2Login()
+                .loginPage("/login")
+                .successHandler(successGoogle)
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
             ;           
 
         http.csrf().disable();
-    }
-
-    
+    }    
 }
