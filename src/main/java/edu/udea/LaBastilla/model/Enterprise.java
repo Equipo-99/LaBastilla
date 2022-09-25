@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "enterprise")
-public class Enterprise {
+public class Enterprise {    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -131,19 +131,5 @@ public class Enterprise {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    @Override
-    public String toString() {
-        return "Enterprise{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", document='" + document + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", users=" + users +
-                ", transactions=" + transactions +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
+    
 }

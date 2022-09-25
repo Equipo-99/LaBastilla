@@ -52,7 +52,7 @@ public class EmployeeFrontController {
     }
 
     // Retornar el usuario que se quiere editar
-    @GetMapping("allusers/edit/{id}")
+    @GetMapping("/allusers/edit/{id}")
     public String getEmployee(@PathVariable Long id, Model model){
         try {
             model.addAttribute("employeeUpdated", servicesEmployee.getEmployee(id));
@@ -65,7 +65,7 @@ public class EmployeeFrontController {
     }
 
     // Actualizar el usuario seleccionado
-    @PutMapping("allusers/edit")
+    @PutMapping("/allusers/edit")
     public String putEmployee(@ModelAttribute("employeeUpdated") Employee employee){
         try {
             servicesEmployee.updateEmployee(employee, employee.getId());

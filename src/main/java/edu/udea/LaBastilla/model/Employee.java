@@ -130,13 +130,6 @@ public class Employee {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee [createdAt=" + createdAt + ", email=" + email + ", enterprise=" + enterprise + ", id=" + id
-                + ", name=" + name + ", role=" + role + ", transactions=" + transactions + ", updatedAt=" + updatedAt
-                + "]";
-    }
+    }  
 
 }
