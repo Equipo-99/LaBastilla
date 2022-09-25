@@ -25,6 +25,9 @@ public class Employee {
     @Column
     private String email;
 
+    @OneToOne
+    private Profile profile;
+
     @ManyToOne
     private Enterprise enterprise;
 
@@ -42,9 +45,10 @@ public class Employee {
     @Column
     private Date updatedAt = new Date();
 
-    public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
+    public Employee(String name, String email,Profile profile, Enterprise enterprise, Enum_RoleName role) {
         this.name = name;
         this.email = email;
+        this.profile = profile;
         this.enterprise = enterprise;
         this.role = role;
     }
@@ -74,6 +78,10 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Profile getProfile() { return profile; }
+
+    public void setProfile(Profile profile) { this.profile = profile; }
 
     public Enterprise getEnterprise() {
         return enterprise;
