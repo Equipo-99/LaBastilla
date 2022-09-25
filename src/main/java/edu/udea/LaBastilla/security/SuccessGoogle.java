@@ -19,18 +19,13 @@ public class SuccessGoogle implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         DefaultOidcUser user = (DefaultOidcUser) authentication.getPrincipal();
-        System.out.println(user);
-        String correoUser = user.getEmail();
-        System.out.println(correoUser + " Correo Google!!!");
+        String correoUsuario = user.getEmail();
         try {
-
-            response.sendRedirect("/");
+            servicesEmployee.getEmployee.getEmail(correoUsuario);
+            response.sendRedirect("/index");
         } catch (Exception e) {
             e.printStackTrace();
             new SecurityContextLogoutHandler().logout(request,response,authentication);
-            //logout
-            //response.sendRedirect("/login");
-
         }
     }
 

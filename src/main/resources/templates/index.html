@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/logo.jpg">
 </head>
 <body>
-    <div class="container-fluid min-vh-100 d-flex flex-column">
+    <div class="container-fluid min-vh-100 d-flex flex-column" sec:authorize="isAuthenticated()">
         <div class="row flex-grow-1 align-items-center">
             <div class="col-md-3">
                 <div class="row mx-auto">
@@ -62,6 +62,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <a href="/login">Iniciar sesión</a>
     </div>
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3">

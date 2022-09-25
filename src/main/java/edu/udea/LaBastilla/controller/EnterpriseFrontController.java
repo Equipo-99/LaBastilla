@@ -18,12 +18,6 @@ public class EnterpriseFrontController {
     @Autowired
     private ServicesEnterpriseInterface servicesEnterprise;
 
-    //Controlador para redireccionar a la página de inicio
-    @GetMapping("/")
-    public String getIndex(){
-        return "index";
-    }
-
     // Controlador para crear una nueva empresa
     @PostMapping("/enterprises/new")
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      

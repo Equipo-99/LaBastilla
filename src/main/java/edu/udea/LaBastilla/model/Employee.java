@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 //Aquí finalizan los import
@@ -34,7 +32,8 @@ public class Employee {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Enum_RoleName role;
+    @ElementCollection(targetClass = Enum_RoleName.class, fetch = FetchType.EAGER)
+    private List<Enum_RoleName> role;    
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
@@ -48,7 +47,7 @@ public class Employee {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public Employee(String name, String email, Enterprise enterprise, Enum_RoleName role) {
+    public Employee(String name, String email, Enterprise enterprise, List<Enum_RoleName> role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
@@ -89,11 +88,11 @@ public class Employee {
         this.enterprise = enterprise;
     }
 
-    public Enum_RoleName getRole() {
+    public List<Enum_RoleName> getRole() {
         return role;
     }
 
-    public void setRole(Enum_RoleName role) {
+    public void setRole(List<Enum_RoleName> role) {
         this.role = role;
     }
 
@@ -120,4 +119,12 @@ public class Employee {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    @Override
+    public String toString() {
+        return "Employee [createdAt=" + createdAt + ", email=" + email + ", enterprise=" + enterprise + ", id=" + id
+                + ", name=" + name + ", role=" + role + ", transactions=" + transactions + ", updatedAt=" + updatedAt
+                + "]";
+    }
+
 }

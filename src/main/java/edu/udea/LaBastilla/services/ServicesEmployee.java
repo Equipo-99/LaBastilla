@@ -34,6 +34,15 @@ public class ServicesEmployee implements ServicesEmployeeInterface {
         throw new Exception("Usuario no existe");
     }
 
+    //Método para obtener un empleado dado su correo con JPA
+    @Override
+    public Employee getEmployeeCorreo(String correo) throws Exception {
+        Optional<Employee> employeeDB = repository.findBy(Sort.by("email"));
+        if (employeeDB.isPresent())
+            return employeeDB.get();
+        throw new Exception("Usuario no existe");
+    }
+
     //Método para crear un nuevo empleado con JPA
     @Override
     public String setEmployee(Employee newEmployee) {

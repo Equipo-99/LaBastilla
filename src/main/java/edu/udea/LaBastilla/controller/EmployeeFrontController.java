@@ -16,6 +16,8 @@ public class EmployeeFrontController {
     @Autowired
     private ServicesEnterpriseInterface servicesEnterprise;
 
+    
+
     // Ver todos los empleados
     @GetMapping("/allusers")
     public String getEmployees(Model model){
