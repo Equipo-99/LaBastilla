@@ -9,7 +9,6 @@ import java.util.List;
 public interface ServicesEmployeeInterface {
     public List<Employee> getEmployees();
     public Employee getEmployee(Long id) throws Exception;
-    public Employee getEmployeeCorreo(String correo) throws Exception;
     public String setEmployee(Employee newEmployee);
     public Employee updateEmployee(Employee employeeUpdated, Long id) throws Exception;
     public String deleteEmployee(Long id);

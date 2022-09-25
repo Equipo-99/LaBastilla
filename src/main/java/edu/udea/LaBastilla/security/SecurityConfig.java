@@ -40,10 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/").permitAll()
                 .antMatchers("/login*").permitAll()
                 .antMatchers("/oauth/**").permitAll()
+
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
                 .successHandler(successGoogle)
+
                 .and()
                 .logout()
                 .logoutUrl("/logout")
