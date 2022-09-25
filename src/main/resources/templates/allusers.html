@@ -10,80 +10,83 @@
 </head>
 <body>
     <div class="container-fluid min-vh-100 d-flex flex-column" sec:authorize="isAuthenticated()">
-        <div class="row flex-grow-1">
-            <div class="col-md-3 align-items-center">
-                <div class="row mx-auto">
-                    <a href="/">
-                        <img src="/logo.jpg" class="rounded">
-                    </a>                     
-                </div>
-                <br>
-                <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="/transactions" role="button">Ingresos y egresos</a>
-                </div>
-                <br>
-                <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="/allusers" role="button">Usuarios</a>
-                </div>
-                <br>
-                <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="/enterprises" role="button">Empresas</a>
-                </div>                   
-            </div>
-
-            <div class="col-md-9">
-                <br>
-                <div class="row">
-                    <h1 class="display-5 fw-bold text-center">Sistema de gestión de ingresos y egresos</h1>
-                </div>  
-                <br>
-                <div class="row">
-                    <h2 class="fw-bold text-center">Listado de usuarios</h2>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-sm-1 align-items-center"><br></div>
-                    <div class="col-sm-10 align-items-center">
-                        <a class="btn btn-outline-success" href="/allusers/new" role="button">Nuevo usuario</a>
-                        <table class="table table-striped text-center my-2">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>
-                                    <!--th scope="col">Teléfono</th-->
-                                    <th scope="col">Empresa</th>
-                                    <th scope="col">Fecha de creación</th>
-                                    <th scope="col">Fecha de actualización</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="employee : ${allusers}">
-                                    <td th:text="${employee.id}" class="fw-bold"></td>
-                                    <td th:text="${employee.name}"></td>
-                                    <td th:text="${employee.email}"></td>
-                                    <td th:text="${employee.enterprise.getName()}"></td>
-                                    <td th:text="${#temporals.format(employee.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
-                                    <td th:text="${#temporals.format(employee.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
-                                    <td>
-                                        <div class="btn-group">
-                                        <form th:action="@{/allusers/edit/{id}(id=${employee.id})}" th:method="get">
-                                            <button type="submit" class="btn btn-warning btn-sm mx-1">Editar</button>
-                                        </form>
-                                        <form th:action="@{/allusers/del/{id}(id=${employee.id})}" th:method="delete">
-                                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                        </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                          </table>   
+        <div sec:authorize="hasAnyRole('Administrador','Operario')">
+            <div class="row flex-grow-1">
+                <div class="col-md-3 align-items-center">
+                    <div class="row mx-auto">
+                        <a href="/">
+                            <img src="/logo.jpg" class="rounded">
+                        </a>                     
                     </div>
-                    <div class="col-sm-1 align-items-center"><br></div>
+                    <br>
+                    <div class="row mx-auto">
+                        <a class="btn btn-secondary" href="/transactions" role="button">Ingresos y egresos</a>
+                    </div>
+                    <br>
+                    <div class="row mx-auto">
+                        <a class="btn btn-secondary" href="/allusers" role="button">Usuarios</a>
+                    </div>
+                    <br>
+                    <div class="row mx-auto">
+                        <a class="btn btn-secondary" href="/enterprises" role="button">Empresas</a>
+                    </div>                   
+                </div>
+    
+                <div class="col-md-9">
+                    <br>
+                    <div class="row">
+                        <h1 class="display-5 fw-bold text-center">Sistema de gestión de ingresos y egresos</h1>
+                    </div>  
+                    <br>
+                    <div class="row">
+                        <h2 class="fw-bold text-center">Listado de usuarios</h2>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-1 align-items-center"><br></div>
+                        <div class="col-sm-10 align-items-center">
+                            <a class="btn btn-outline-success" href="/allusers/new" role="button">Nuevo usuario</a>
+                            <table class="table table-striped text-center my-2">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">Empresa</th>
+                                        <th scope="col">Fecha de creación</th>
+                                        <th scope="col">Fecha de actualización</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="employee : ${allusers}">
+                                        <td th:text="${employee.id}" class="fw-bold"></td>
+                                        <td th:text="${employee.name}"></td>
+                                        <td th:text="${employee.email}"></td>
+                                        <td th:text="${employee.enterprise.getName()}"></td>
+                                        <td th:text="${#temporals.format(employee.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                                        <td th:text="${#temporals.format(employee.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
+                                        <div sec:authorize="hasRole('Operario')">
+                                            <td>
+                                                <div class="btn-group">
+                                                <form th:action="@{/allusers/edit/{id}(id=${employee.id})}" th:method="get">
+                                                    <button type="submit" class="btn btn-warning btn-sm mx-1">Editar</button>
+                                                </form>
+                                                <form th:action="@{/allusers/del/{id}(id=${employee.id})}" th:method="delete">
+                                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                                </form>
+                                                </div>
+                                            </td>
+                                        </div>                                    
+                                    </tr>
+                                </tbody>
+                              </table>   
+                        </div>
+                        <div class="col-sm-1 align-items-center"><br></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
     <div sec:authorize="!isAuthenticated()">
         <a href="/login">Iniciar sesión</a>
