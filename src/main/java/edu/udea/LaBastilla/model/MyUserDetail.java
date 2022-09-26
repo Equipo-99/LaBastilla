@@ -18,15 +18,13 @@ public class MyUserDetail implements UserDetails{
     private String username;
     private String password;
     private List<GrantedAuthority> authorities;
-    private Employee id;
 
-    public MyUserDetail(Profile profile){
-        this.username = profile.getId();
-        this.password = profile.getId();
+    public MyUserDetail(Employee employee){
+        this.username = employee.getEmail();
+        this.password = employee.getEmail();
 
-        this.id = profile.getEmployee();
         List<GrantedAuthority> roles = new ArrayList<>();
-        for(Enum_RoleName rol: this.id.getRole())
+        for(Enum_RoleName rol: employee.getRole())
             roles.add(new SimpleGrantedAuthority(rol.name()));     
         this.authorities = roles; 
     }

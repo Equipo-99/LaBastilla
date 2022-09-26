@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import edu.udea.LaBastilla.model.ObjetoRespuesta;
+import java.util.List;
 //Aquí finalizan los import
 
 /*CLASE DE CONTROLADOR PARA EL MODELO EMPRESA. SE CUENTA CON LOS
@@ -19,6 +20,12 @@ public class ControllerEnterprise {
     //Controlador AUTOWIRED para conectar, a través de la interfaz, con la case empresa
     @Autowired
     private ServicesEnterpriseInterface servicesEnterprise;
+
+    //Controlador GET para obtener los datos de todas las empresas registradas
+    @GetMapping("/enterprises")
+    public ResponseEntity<List<Enterprise>> getEmpresas() {
+        return new ResponseEntity<>(servicesEnterprise.getEnterprises(), HttpStatus.OK);
+    }
 
     //Controlador GET para obtener los datos de una empresa dada su ID
     @GetMapping("/enterprises/{id}")

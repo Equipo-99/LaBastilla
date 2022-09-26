@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/logo.jpg">
 </head>
 <body>
-    <div class="container-fluid min-vh-100 d-flex flex-column" sec:authorize="isAuthenticated()">
+    <div class="container-fluid min-vh-100 d-flex flex-column">
         <div class="row flex-grow-1 align-items-center">
             <div class="col-md-3">
                 <div class="row mx-auto">
@@ -29,7 +29,7 @@
                 <br>
                 <!--Redirecciona a la página de la tabla de las empresas, esto mediante el FrontController-->
                 <div class="row mx-auto">
-                    <a class="btn btn-secondary" href="/enterprises" role="button">Empresas</a>  
+                    <a class="btn btn-secondary" href="/allenterprises" role="button">Empresas</a>
                 </div>                   
             </div>
             <div class="col-lg-3 d-block mx-auto">
@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Gestión de empresas</h5>
                         <p class="card-text">Información sobre las empresas registradas en la plataforma.</p>
-                        <a href="enterprises" class="btn btn-primary">Ir a las empresas</a>
+                        <a href="/allenterprises" class="btn btn-primary">Ir a las empresas</a>
                     </div>
                 </div>
             </div>

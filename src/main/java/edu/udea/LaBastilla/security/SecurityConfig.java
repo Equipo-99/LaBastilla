@@ -45,10 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("id")
-                .passwordParameter("id")
+                .usernameParameter("email")
+                .passwordParameter("email")
                 .defaultSuccessUrl("/")
-    
 
                 .and()
                 .oauth2Login()
@@ -58,8 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
-            ;           
+                .logoutSuccessUrl("/login");
 
         http.csrf().disable();
     }    

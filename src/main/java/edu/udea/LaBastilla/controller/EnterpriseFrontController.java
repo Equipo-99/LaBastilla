@@ -23,7 +23,7 @@ public class EnterpriseFrontController {
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
         try {
             String mensaje = servicesEnterprise.setEnterprise(enterprise);
-            return "redirect:/enterprises";
+            return "redirect:/allenterprises";
         } 
         catch (Exception e) {
             return "redirect:/error";
@@ -38,7 +38,7 @@ public class EnterpriseFrontController {
     }
 
     // Controlador para redireccionar a la página de ver todas las empresas
-    @GetMapping("/enterprises")
+    @GetMapping("/allenterprises")
     public String getEnterprises(Model model){
         model.addAttribute("enterprises", servicesEnterprise.getEnterprises());
         return "enterprises";
@@ -66,7 +66,7 @@ public class EnterpriseFrontController {
     public String putEnterprise(@ModelAttribute("enterpriseUpdated") Enterprise enterprise){
         try {
             servicesEnterprise.updateEnterprise(enterprise, enterprise.getId());
-            return "redirect:/enterprises";
+            return "redirect:/allenterprises";
         } catch (Exception e) {
             return "redirect:/error";
         }
@@ -76,7 +76,7 @@ public class EnterpriseFrontController {
     @DeleteMapping("/enterprises/del/{id}")
     public String deleteEnterprise(@PathVariable Long id, Model model){
         servicesEnterprise.deleteEnterprise(id);
-        return "redirect:/enterprises";
+        return "redirect:/allenterprises";
     }
     
 }

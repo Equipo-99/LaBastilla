@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 /*CLASE DE INTERFAZ PARA EL EMPLEADO CON JPA */
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {}
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+
+    public Employee findByEmail(String email);
+}

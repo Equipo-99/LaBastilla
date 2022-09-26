@@ -29,9 +29,6 @@ public class Employee {
 
     @ManyToOne
     private Enterprise enterprise;
-    
-    @OneToOne
-    private Profile profile;    
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -50,11 +47,10 @@ public class Employee {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public Employee(String name, String email, Enterprise enterprise, List<Enum_RoleName> role, Profile profile) {
+    public Employee(String name, String email, Enterprise enterprise, List<Enum_RoleName> role) {
         this.name = name;
         this.email = email;
         this.enterprise = enterprise;
-        this.profile = profile;
         this.role = role;
     }
 
@@ -123,13 +119,4 @@ public class Employee {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }  
-
 }

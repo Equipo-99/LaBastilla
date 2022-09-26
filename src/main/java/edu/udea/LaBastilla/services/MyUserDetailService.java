@@ -1,7 +1,8 @@
 //Aquí inician los import
 package edu.udea.LaBastilla.services;
+import edu.udea.LaBastilla.model.Employee;
 import edu.udea.LaBastilla.model.MyUserDetail;
-import edu.udea.LaBastilla.model.Profile;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,15 +15,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
-    //Variable de apoyo para la interfaz de servicios de la empresa
     @Autowired
-    ServicesProfileInterface servicesProfileInterface;
+    ServicesEmployeeInterface servicesEmployeeInterface;
 
-    //Método sobreescrito para obtener el empleado dada su ID
+    //Método sobreescrito para obtener el empleado dado su email
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         try {
-            Profile user = servicesProfileInterface.getProfile(username);
+            Employee user = servicesEmployeeInterface.getEmployeeByEmail(email);
             return new MyUserDetail(user);
         } 
         catch (Exception e) {

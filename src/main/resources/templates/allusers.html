@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="container-fluid min-vh-100 d-flex flex-column" sec:authorize="isAuthenticated()">
-        <div sec:authorize="hasAnyRole('Administrador','Operario')">
             <div class="row flex-grow-1">
                 <div class="col-md-3 align-items-center">
                     <div class="row mx-auto">
@@ -28,7 +27,7 @@
                     </div>
                     <br>
                     <div class="row mx-auto">
-                        <a class="btn btn-secondary" href="/enterprises" role="button">Empresas</a>
+                        <a class="btn btn-secondary" href="/allenterprises" role="button">Empresas</a>
                     </div>                   
                 </div>
     
@@ -66,7 +65,7 @@
                                         <td th:text="${employee.enterprise.getName()}"></td>
                                         <td th:text="${#temporals.format(employee.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
                                         <td th:text="${#temporals.format(employee.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
-                                        <div sec:authorize="hasRole('Operario')">
+                                        <div>
                                             <td>
                                                 <div class="btn-group">
                                                 <form th:action="@{/allusers/edit/{id}(id=${employee.id})}" th:method="get">
@@ -86,7 +85,6 @@
                     </div>
                 </div>
             </div>
-        </div>        
     </div>
     <div sec:authorize="!isAuthenticated()">
         <a href="/login">Iniciar sesión</a>
