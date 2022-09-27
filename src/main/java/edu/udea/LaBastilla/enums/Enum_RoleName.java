@@ -1,6 +1,6 @@
 package edu.udea.LaBastilla.enums;
 
 public enum Enum_RoleName {
-    Administrador,
-    Operario;
+    ROLE_Admin,
+    ROLE_Operario;
 }

@@ -41,7 +41,7 @@ public class EnterpriseFrontController {
     @GetMapping("/allenterprises")
     public String getEnterprises(Model model){
         model.addAttribute("enterprises", servicesEnterprise.getEnterprises());
-        return "enterprises";
+        return "allenterprises";
     }
 
     // Ver página para actualizar entradas de empresas

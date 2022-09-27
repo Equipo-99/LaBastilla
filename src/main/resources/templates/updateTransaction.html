@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Editar transacción · La Bastilla</title>
     <link rel="shortcut icon" href="/logo.jpg">
 </head>
-<body>
+<body background="/background.png">
     <div class="container-fluid min-vh-100 d-flex flex-column" sec:authorize="isAuthenticated()">
         <div class="row flex-grow-1">
-            <div class="col-md-3 align-items-center">
-                <div class="row mx-auto">
+            <div class="col-lg-2 bg-dark">
+                <div class="row mx-auto text-center py-5">
                     <a href="/">
-                        <img src="/logo.jpg" class="rounded">
+                        <img src="/logo.jpg" class="rounded" height="200">
                     </a>
                 </div>
                 <br>
@@ -29,6 +29,10 @@
                 <div class="row mx-auto">
                     <a class="btn btn-secondary" href="/allenterprises" role="button">Empresas</a>
                 </div>
+                <br>
+                <form th:action="@{/logout}" class="row mx-auto" method="post">
+                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                </form>
             </div>
             <div class="col-md-9">
                 <br>
@@ -41,8 +45,7 @@
                 </div>
                 <br><br>
                 <div class="row">
-                    <div class="col-sm-1 align-items-center"><br></div>
-                    <div class="col-sm-10 align-items-center">
+                    <div class="col-lg-4 mx-auto">
                         <form th:method="put" th:object="${transactionUpdated}"  th:action="@{/transactions/edit}">
                             <input type="hidden" class="form-control" th:field="*{id}" th:value="*{id}">
                             <div class="mb-3">
@@ -78,13 +81,12 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-sm-1 align-items-center"><br></div>
                 </div>
             </div>
         </div>
     </div>
     <div sec:authorize="!isAuthenticated()">
-        <a href="/login">Iniciar sesión</a>
+        <meta http-equiv="refresh" content="0; url=/login">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
