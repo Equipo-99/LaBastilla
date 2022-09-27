@@ -14,11 +14,11 @@ import edu.udea.LaBastilla.services.ServicesEnterpriseInterface;
 @Controller
 public class EnterpriseFrontController {
 
-    // Variable de apoyo para la interfaz de servicios de la empresa
+    //Variable de apoyo para la interfaz de servicios de la empresa
     @Autowired
     private ServicesEnterpriseInterface servicesEnterprise;
 
-    // Controlador para crear una nueva empresa
+    //Controlador para crear una nueva empresa
     @PostMapping("/enterprises/new")
     public String postEnterprise(@ModelAttribute("enterprise") Enterprise enterprise){      
         try {
@@ -30,27 +30,27 @@ public class EnterpriseFrontController {
         }
     }
 
-    // Controlador para redireccionar a la página de crear nueva empresa
+    //Controlador para redireccionar a la página de crear nueva empresa
     @GetMapping("/enterprises/new")
     public String setEnterprise(Model model){
         model.addAttribute("enterprise", new Enterprise());
         return "newEnterprise";
     }
 
-    // Controlador para redireccionar a la página de ver todas las empresas
+    //Controlador para redireccionar a la página de ver todas las empresas
     @GetMapping("/allenterprises")
     public String getEnterprises(Model model){
         model.addAttribute("enterprises", servicesEnterprise.getEnterprises());
         return "allenterprises";
     }
 
-    // Ver página para actualizar entradas de empresas
+    //Controlador para redireccionar a la página para actualizar entradas de empresas
     @GetMapping("/enterprises/edit")
     public String getUpdateForm(Model model){
         return "updateEnterprise";
     }
 
-    // Retornar la empresa que se quiere editar
+    //Controlador para retornar la empresa que se quiere editar
     @GetMapping("enterprises/edit/{id}")
     public String getEnterprise(@PathVariable Long id, Model model){
         try {
@@ -61,7 +61,7 @@ public class EnterpriseFrontController {
         }
     }
 
-    // Actualizar la empresa seleccionada
+    //Controlador para actualizar la empresa seleccionada
     @PutMapping("enterprises/edit")
     public String putEnterprise(@ModelAttribute("enterpriseUpdated") Enterprise enterprise){
         try {
@@ -72,7 +72,7 @@ public class EnterpriseFrontController {
         }
     }
 
-    // Método Delete para eliminar entradas de empresas desde el HTML (También se puede con @GetMapping y @PostMapping)
+    //Método Delete para eliminar entradas de empresas desde el HTML (También se puede con @GetMapping y @PostMapping)
     @DeleteMapping("/enterprises/del/{id}")
     public String deleteEnterprise(@PathVariable Long id, Model model){
         servicesEnterprise.deleteEnterprise(id);

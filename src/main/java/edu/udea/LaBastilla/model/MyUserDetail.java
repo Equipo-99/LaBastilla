@@ -6,9 +6,8 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-//Aquí finalizan los import
-
 import edu.udea.LaBastilla.enums.Enum_RoleName;
+//Aquí finalizan los import
 
 /*CLASE MODELO PARA LOS DETALLES DEL USUARIO. NECESARIA PARA LA
  * CONFIGURACIÓN DE SEGURIDAD*/
@@ -23,6 +22,7 @@ public class MyUserDetail implements UserDetails{
         this.username = employee.getEmail();
         this.password = employee.getEmail();
 
+        //Obtener el rol del empleado y almacenarlo en una lista
         List<GrantedAuthority> roles = new ArrayList<>();
         for(Enum_RoleName rol: employee.getRole())
             roles.add(new SimpleGrantedAuthority(rol.name()));     

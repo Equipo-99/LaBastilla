@@ -1,3 +1,4 @@
+//Aquí inician los import
 package edu.udea.LaBastilla.controller;
 import edu.udea.LaBastilla.enums.Enum_RoleName;
 import edu.udea.LaBastilla.model.Employee;
@@ -7,24 +8,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+//Aquí finalizan los import
+
+/*CONTROLADOR PARA CONECTAR EL BACKEND CON EL FRONTEND DEL
+ * EMPLEADO*/
 
 @Controller
 public class EmployeeFrontController {
 
+    //Controlador AUTOWIRED para conectar, a través de la interfaz, con la case empleado
     @Autowired
     private ServicesEmployeeInterface servicesEmployee;
     
+    //Controlador AUTOWIRED para conectar, a través de la interfaz, con la case empresa
     @Autowired
     private ServicesEnterpriseInterface servicesEnterprise;    
 
-    // Ver todos los empleados
+    //Controlador para ver todos los empleados
     @GetMapping("/allusers")
     public String getEmployees(Model model){
         model.addAttribute("allusers", servicesEmployee.getEmployees());
         return "allusers";
     }
 
-    // Ver página para crear un nuevo empleado
+    //Controlador para redireccionar a la página para crear un nuevo empleado
     @GetMapping("/allusers/new")
     public String setEmployee(Model model){
         model.addAttribute("employee", new Employee());
@@ -33,7 +40,7 @@ public class EmployeeFrontController {
         return "newUser";
     }
 
-    // Crear un nuevo empleado
+    //Controlador para crear un nuevo empleado
     @PostMapping("/allusers/new")
     public String postEmployee(@ModelAttribute("employee") Employee employee){
         try {
@@ -45,13 +52,13 @@ public class EmployeeFrontController {
         }
     }
 
-    // Ver página para actualizar entradas de usuarios
+    //Controlador para redireccionar a la página para actualizar entradas de usuarios
     @GetMapping("/allusers/edit")
     public String getUpdateForm(Model model){
         return "updateEmployee";
     }
 
-    // Retornar el usuario que se quiere editar
+    //Controlador para retornar el usuario que se quiere editar
     @GetMapping("/allusers/edit/{id}")
     public String getEmployee(@PathVariable Long id, Model model){
         try {
@@ -64,7 +71,7 @@ public class EmployeeFrontController {
         }
     }
 
-    // Actualizar el usuario seleccionado
+    //Controlador para actualizar el usuario seleccionado
     @PutMapping("/allusers/edit")
     public String putEmployee(@ModelAttribute("employeeUpdated") Employee employee){
         try {
@@ -75,7 +82,7 @@ public class EmployeeFrontController {
         }
     }
 
-    // Eliminar un empleado
+    //Controlador para eliminar un empleado
     @DeleteMapping("/allusers/del/{id}")
     public String deleteEmployee(@PathVariable Long id, Model model){
         servicesEmployee.deleteEmployee(id);
