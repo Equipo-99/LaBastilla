@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Inicio · La Bastilla</title>
+    <link rel="shortcut icon" href="/logo.jpg">
+</head>
+<body background="/background.png">
+    <div class="container-fluid min-vh-100 d-flex flex-column">
+        <div class="row flex-grow-1">
+            <div class="col-lg-2 bg-dark">
+                <div class="row mx-auto text-center py-5">
+                    <!--Redirecciona a la página de inicio, esto mediante el FrontController-->
+                    <a href="/">
+                        <img src="/logo.jpg" class="rounded img-fluid" height="200">
+                    </a>                     
+                </div>
+                <br>
+                <div class="row mx-auto">
+                    <a class="btn btn-secondary" href="/transactions" role="button">Ingresos y egresos</a>
+                </div>
+                <br>
+                <div class="row mx-auto">
+                    <a class="btn btn-secondary" href="/allusers" role="button">Usuarios</a>
+                </div>
+                <br>
+                <!--Redirecciona a la página de la tabla de las empresas, esto mediante el FrontController-->
+                <div class="row mx-auto">
+                    <a class="btn btn-secondary" href="/allenterprises" role="button">Empresas</a>
+                </div>
+                <br>
+                <div class="row mx-auto" sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-primary" href="/login" role="button">Iniciar sesión</a>
+                </div>
+                <form th:action="@{/logout}" class="row mx-auto" sec:authorize="isAuthenticated()" method="post">
+                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                </form>
+            </div>
+            <div class="col-lg-3 my-auto mx-auto">
+                <!--Movimientos de dinero (tabla)-->
+                <div class="card text-center">
+                    <img src="transactions.png" class="card-img-top mx-auto mt-2" alt="..." style="width:100px">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Gestión de ingresos y egresos</h5>
+                        <p class="card-text">Movimientos de dinero realizados por los empleados y las empresas.</p>
+                        <a href="/transactions" class="btn btn-primary">Ir a los movimientos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 my-auto mx-auto">
+                <!--Usuarios registrados (tabla)-->
+                <div class="card text-center">
+                    <img src="employees.png" class="card-img-top mx-auto mt-2" alt="..." style="width:100px">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Gestión de usuarios</h5>
+                        <p class="card-text">Información sobre los usuarios registrados en la plataforma.</p>
+                        <a href="/allusers" class="btn btn-primary">Ir a los usuarios</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 my-auto mx-auto">
+                <!--Empresas registradas (tabla)-->
+                <div class="card text-center">
+                    <img src="enterprises.png" class="card-img-top mx-auto mt-2" alt="..." style="width:100px">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Gestión de empresas</h5>
+                        <p class="card-text">Información sobre las empresas registradas en la plataforma.</p>
+                        <a href="/allenterprises" class="btn btn-primary">Ir a las empresas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-2">
+            <p class="mb-0">
+            &copy; Equipo 99 - MisiónTIC 2022. Iconos y fondo de:
+            <a href="https://www.flaticon.com/" title="www.flaticon.com">Flaticon</a>
+             &
+            <a href="https://www.vecteezy.com/free-photos">Vecteezy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+</body>
+</html>
